@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "updated": "2026-10-17 21:04 UTC",
+ "updated": "2026-10-18 23:35 UTC",
  "rounds": [
   {
    "id": "circuit-paul-ricard",
@@ -28828,16 +28828,6 @@
       },
       {
        "pos": 20,
-       "car": "58",
-       "drivers": "Thomas Fleming, Louis Prette, Benjamin Goethe",
-       "team": "Garage 59",
-       "model": "McLaren 720S GT3 EVO",
-       "time": "1:44.549",
-       "laps": 94,
-       "cls": "Gold Cup"
-      },
-      {
-       "pos": 21,
        "car": "65",
        "drivers": "Maxime Oosten, Nicolas Baert, Eduardo Coseteng",
        "team": "HRT Ford Racing",
@@ -28847,7 +28837,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 22,
+       "pos": 21,
        "car": "98",
        "drivers": "Philipp Eng, Marco Wittmann, Jake Dennis",
        "team": "Rowe Racing",
@@ -28857,7 +28847,7 @@
        "cls": "Pro Cup"
       },
       {
-       "pos": 23,
+       "pos": 22,
        "car": "19",
        "drivers": "Aaron Walker, Marcos Siebert, Christian Mansell",
        "team": "Team Motopark",
@@ -28867,7 +28857,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 24,
+       "pos": 23,
        "car": "23",
        "drivers": "Horatio Fitz-Simon, Maxwell Lynn, Ben Dörr",
        "team": "Team RJN",
@@ -28877,7 +28867,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 25,
+       "pos": 24,
        "car": "25",
        "drivers": "Ezequiel Perez Companc, Etienne Cheli, Ivan Klymenko",
        "team": "Sainteloc Racing",
@@ -28887,7 +28877,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 26,
+       "pos": 25,
        "car": "992",
        "drivers": "Daryl De Leon, Christian Hahn, Josh Rowledge",
        "team": "Paradine Competition",
@@ -28897,7 +28887,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 27,
+       "pos": 26,
        "car": "42",
        "drivers": "Javier Sagrera, Ahmad Al Harthy, Calan Williams",
        "team": "Oman Racing by Century Motorsport",
@@ -28907,7 +28897,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 28,
+       "pos": 27,
        "car": "4",
        "drivers": "Freddie Tomlinson, Harry George, Adam Smalley",
        "team": "Optimum Motorsport",
@@ -28917,7 +28907,7 @@
        "cls": "Gold Cup"
       },
       {
-       "pos": 29,
+       "pos": 28,
        "car": "52",
        "drivers": "Jef Machiels, Gilles Stadsbader, Matias Zagazeta",
        "team": "AF Corse",
@@ -28927,7 +28917,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 30,
+       "pos": 29,
        "car": "32",
        "drivers": "Kelvin van der Linde, Jordan Pepper, Charles Weerts",
        "team": "Team WRT",
@@ -28937,7 +28927,7 @@
        "cls": "Pro Cup"
       },
       {
-       "pos": 31,
+       "pos": 30,
        "car": "99",
        "drivers": "Dylan Pereira, Andrea Frassineti, Alex Aka",
        "team": "Tresor Attempto Racing",
@@ -28947,7 +28937,7 @@
        "cls": "Gold Cup"
       },
       {
-       "pos": 32,
+       "pos": 31,
        "car": "991",
        "drivers": "James Kellett, Darren Leung, Robert De Haan",
        "team": "Paradine Competition",
@@ -28957,7 +28947,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 33,
+       "pos": 32,
        "car": "21",
        "drivers": "Kobe Pauwels, Oliver Söderström, Sebastien Baud",
        "team": "Comtoyou Racing",
@@ -28967,7 +28957,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 34,
+       "pos": 33,
        "car": "74",
        "drivers": "Dustin Blattner, Lorenzo Patrese, Dennis Marschall",
        "team": "Kessel Racing",
@@ -28977,7 +28967,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 35,
+       "pos": 34,
        "car": "555",
        "drivers": "Jean-Baptiste Simmenauer, James Higgins, Loris Cabirou",
        "team": "CSA Racing",
@@ -28987,7 +28977,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 36,
+       "pos": 35,
        "car": "77",
        "drivers": "Jop Rappange, Nigel Schoonderwoerd, Yelmer Buurman",
        "team": "KPX Motorsport",
@@ -28997,7 +28987,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 37,
+       "pos": 36,
        "car": "88",
        "drivers": "Daniele Di Amato, Carrie Schreiner, Aleksei Nesov",
        "team": "Tresor Attempto Racing",
@@ -29007,7 +28997,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 38,
+       "pos": 37,
        "car": "91",
        "drivers": "Ralf Bohn, Robert Renauer, Huub van Eijndhoven",
        "team": "Herberth Motorsport",
@@ -29017,7 +29007,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 39,
+       "pos": 38,
        "car": "11",
        "drivers": "Marcelo Tomasoni, Aaron Muss, Valentin Hasse-Clot",
        "team": "Comtoyou Racing",
@@ -29027,7 +29017,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 40,
+       "pos": 39,
        "car": "111",
        "drivers": "Jim Pla, Simon Gachet, James Kell",
        "team": "CSA Racing",
@@ -29037,7 +29027,7 @@
        "cls": "Gold Cup"
       },
       {
-       "pos": 41,
+       "pos": 40,
        "car": "12",
        "drivers": "Gabriel Rindone, Tom Kalender, Mikael Grenier",
        "team": "GetSpeed Team Dubai",
@@ -29047,7 +29037,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 42,
+       "pos": 41,
        "car": "45",
        "drivers": "Axcil Jefferies, Dylan Medler, David Perel",
        "team": "Rinaldi Racing",
@@ -29057,7 +29047,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 43,
+       "pos": 42,
        "car": "999",
        "drivers": "Patrick Charlaix, Jordan Boisson, Marvin Klein",
        "team": "GetSpeed Team PCX Racing",
@@ -29067,7 +29057,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 44,
+       "pos": 43,
        "car": "914",
        "drivers": "Richard Wolf, Max Mutschlechner, Leo Pichler",
        "team": "Razoon - more than racing",
@@ -29077,7 +29067,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 45,
+       "pos": 44,
        "car": "8",
        "drivers": "Reinhold Krahn, Pietro Armanni, Joel Sturm",
        "team": "Car Collection Motorsport",
@@ -29087,7 +29077,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 46,
+       "pos": 45,
        "car": "35",
        "drivers": "Lucas Legeret, Mark Kastelic, Mateo Villagomez",
        "team": "Walkenhorst Motorsport",
@@ -29097,7 +29087,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 47,
+       "pos": 46,
        "car": "89",
        "drivers": "Bashar Mardini, Patrick Kolb, Alex Fontana",
        "team": "Lionspeed GP",
@@ -29107,7 +29097,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 48,
+       "pos": 47,
        "car": "41",
        "drivers": "Sebá Malucelli, Alan Hellmeister, Marcos Gomes",
        "team": "Razoon - more than racing",
@@ -29117,7 +29107,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 49,
+       "pos": 48,
        "car": "24",
        "drivers": "Mikkel Mac, Kasper H. Jensen, Dennis Lind",
        "team": "Steller Motorsport",
@@ -29127,7 +29117,7 @@
        "cls": "Gold Cup"
       },
       {
-       "pos": 50,
+       "pos": 49,
        "car": "46",
        "drivers": "Max Hesse, Valentino Rossi, Neil Verhagen",
        "team": "Team WRT",
@@ -29137,7 +29127,7 @@
        "cls": "Pro Cup"
       },
       {
-       "pos": 51,
+       "pos": 50,
        "car": "96",
        "drivers": "Patric Niederhauser, Marco Mapelli, Luca Engstler",
        "team": "Rutronik Racing",
@@ -29147,7 +29137,7 @@
        "cls": "Pro Cup"
       },
       {
-       "pos": 52,
+       "pos": 51,
        "car": "63",
        "drivers": "Franck Perera, Maximilian Paul, Mirko Bortolotti",
        "team": "TGI Team by GRT",
@@ -29157,17 +29147,7 @@
        "cls": "Pro Cup"
       },
       {
-       "pos": 53,
-       "car": "9",
-       "drivers": "Max Hofer, Mikkel Pedersen, Aliaksandr Malykhin",
-       "team": "Pure Rxcing",
-       "model": "Porsche 911 GT3 R EVO",
-       "time": "1:45.469",
-       "laps": 49,
-       "cls": "Silver Cup"
-      },
-      {
-       "pos": 54,
+       "pos": 52,
        "car": "54",
        "drivers": "Tanart Sathienthirakul, Francesco Simonazzi, Angus Whiteside",
        "team": "Dinamic GT",
@@ -29177,7 +29157,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 55,
+       "pos": 53,
        "car": "269",
        "drivers": "Max Moritz, Raphael Rennhofer, Klaus Bachler",
        "team": "High Class Racing",
@@ -29187,7 +29167,7 @@
        "cls": "Bronze Cup"
       },
       {
-       "pos": 56,
+       "pos": 54,
        "car": "20",
        "drivers": "Philip Ellis, Nikita Mazepin, Dominik Baumann",
        "team": "Team Motopark",
@@ -29197,7 +29177,7 @@
        "cls": "Pro Cup"
       },
       {
-       "pos": 57,
+       "pos": 55,
        "car": "7",
        "drivers": "Mattia Drudi, Ross Gunn, Nicki Thiim",
        "team": "Comtoyou Racing",
@@ -29207,7 +29187,17 @@
        "cls": "Pro Cup"
       },
       {
-       "pos": 58,
+       "pos": 56,
+       "car": "9",
+       "drivers": "Max Hofer, Mikkel Pedersen, Aliaksandr Malykhin",
+       "team": "Pure Rxcing",
+       "model": "Porsche 911 GT3 R EVO",
+       "time": "1:45.469",
+       "laps": 49,
+       "cls": "Silver Cup"
+      },
+      {
+       "pos": 57,
        "car": "10",
        "drivers": "Gilles Magnus, Robin Knutsson, Alessandro Ghiretti",
        "team": "Boutsen VDS",
@@ -29217,7 +29207,7 @@
        "cls": "Gold Cup"
       },
       {
-       "pos": 59,
+       "pos": 58,
        "car": "44",
        "drivers": "Tommy Pintos, Joshua Rattican, Jayden Kelly",
        "team": "Greystone GT",
@@ -29227,7 +29217,7 @@
        "cls": "Silver Cup"
       },
       {
-       "pos": 60,
+       "pos": 59,
        "car": "84",
        "drivers": "Christopher Haase, Simon Reicher, Markus Winkelhock",
        "team": "Eastalent Racing",
@@ -29237,7 +29227,7 @@
        "cls": "Pro Cup"
       },
       {
-       "pos": 61,
+       "pos": 60,
        "car": "93",
        "drivers": "Lucas Wolf, Eddie Cheever, Christopher Froggatt",
        "team": "Ziggo Sport Tempesta Racing",
@@ -29245,6 +29235,16 @@
        "time": "1:45.978",
        "laps": 19,
        "cls": "Bronze Cup"
+      },
+      {
+       "pos": 61,
+       "car": "58",
+       "drivers": "Thomas Fleming, Louis Prette, Benjamin Goethe",
+       "team": "Garage 59",
+       "model": "McLaren 720S GT3 EVO",
+       "time": "1:44.549",
+       "laps": null,
+       "cls": "Gold Cup"
       }
      ]
     },

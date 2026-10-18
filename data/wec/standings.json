@@ -8,97 +8,97 @@
       "pos": 1,
       "name": "#8 HARTLEY / HIRAKAWA / BUEMI",
       "team": "TOYOTA RACING",
-      "total": 89
+      "total": 114
      },
      {
       "pos": 2,
       "name": "#7 KOBAYASHI / CONWAY / DE VRIES",
       "team": "TOYOTA RACING",
-      "total": 79
+      "total": 97
      },
      {
       "pos": 3,
-      "name": "#20 RAST / FRIJNS",
+      "name": "#15 MAGNUSSEN / MARCIELLO",
       "team": "BMW M TEAM WRT",
       "total": 75
      },
      {
       "pos": 4,
-      "name": "#15 MAGNUSSEN / MARCIELLO",
+      "name": "#20 RAST / FRIJNS",
+      "team": "BMW M TEAM WRT",
+      "total": 75
+     },
+     {
+      "pos": 5,
+      "name": "#15 VANTHOOR",
       "team": "BMW M TEAM WRT",
       "total": 69
      },
      {
-      "pos": 5,
+      "pos": 6,
+      "name": "#50 FUOCO / MOLINA / NIELSEN",
+      "team": "FERRARI AF CORSE",
+      "total": 69
+     },
+     {
+      "pos": 7,
       "name": "#20 VAN DER LINDE",
       "team": "BMW M TEAM WRT",
       "total": 65
      },
      {
-      "pos": 6,
-      "name": "#15 VANTHOOR",
-      "team": "BMW M TEAM WRT",
-      "total": 63
-     },
-     {
-      "pos": 7,
+      "pos": 8,
       "name": "#51 GUIDI / GIOVINAZZI / CALADO",
       "team": "FERRARI AF CORSE",
       "total": 59
      },
      {
-      "pos": 8,
-      "name": "#35 MILESI / HABSBURG",
-      "team": "ALPINE ENDURANCE TEAM",
-      "total": 56
-     },
-     {
       "pos": 9,
-      "name": "#50 FUOCO / MOLINA / NIELSEN",
-      "team": "FERRARI AF CORSE",
-      "total": 54
+      "name": "#12 NATO / STEVENS",
+      "team": "CADILLAC HERTZ TEAM JOTA",
+      "total": 58
      },
      {
       "pos": 10,
-      "name": "#12 NATO / STEVENS",
-      "team": "CADILLAC HERTZ TEAM JOTA",
-      "total": 50
+      "name": "#35 MILESI / HABSBURG",
+      "team": "ALPINE ENDURANCE TEAM",
+      "total": 57
      },
      {
       "pos": 11,
       "name": "#38 BAMBER / BOURDAIS",
       "team": "CADILLAC HERTZ TEAM JOTA",
-      "total": 44
+      "total": 56
      },
      {
       "pos": 12,
+      "name": "#38 AITKEN",
+      "team": "CADILLAC HERTZ TEAM JOTA",
+      "total": 52
+     },
+     {
+      "pos": 13,
       "name": "#35 DA COSTA",
       "team": "ALPINE ENDURANCE TEAM",
       "total": 44
      },
      {
-      "pos": 13,
+      "pos": 14,
       "name": "#007 TINCKNELL / GAMBLE",
       "team": "ASTON MARTIN THOR TEAM",
       "total": 42
      },
      {
-      "pos": 14,
-      "name": "#38 AITKEN",
-      "team": "CADILLAC HERTZ TEAM JOTA",
-      "total": 40
-     },
-     {
       "pos": 15,
-      "name": "#36 GOUNON / MARTINS",
-      "team": "ALPINE ENDURANCE TEAM",
-      "total": 32
+      "name": "#83 HANSON / KUBICA / YE",
+      "team": "AF CORSE",
+      "total": 41
      },
      {
       "pos": 16,
-      "name": "#83 HANSON / KUBICA / YE",
-      "team": "AF CORSE",
-      "total": 31
+      "name": "#36 GOUNON / MARTINS",
+      "team": "ALPINE ENDURANCE TEAM",
+      "total": 36
      },
      {
       "pos": 17,
@@ -122,40 +122,58 @@
       "pos": 20,
       "name": "#17 LOTTERER / DERANI / JAUBERT",
       "team": "GENESIS MAGMA RACING",
-      "total": 10
+      "total": 11
      },
      {
       "pos": 21,
+      "name": "#12 LYNN",
+      "team": "CADILLAC HERTZ TEAM JOTA",
+      "total": 8
+     },
+     {
+      "pos": 22,
       "name": "#007 GUNN",
       "team": "ASTON MARTIN THOR TEAM",
       "total": 8
      },
      {
-      "pos": 22,
-      "name": "#93 CASSIDY / DI RESTA / VANDOORNE",
+      "pos": 23,
+      "name": "#93 CASSIDY / DI RESTA",
       "team": "PEUGEOT TOTALENERGIES",
       "total": 6
      },
      {
-      "pos": 23,
-      "name": "#009 RIBERAS / SØRENSEN",
-      "team": "ASTON MARTIN THOR TEAM",
-      "total": 4
+      "pos": 24,
+      "name": "#93 VANDOORNE",
+      "team": "PEUGEOT TOTALENERGIES",
+      "total": 6
      },
      {
-      "pos": 24,
+      "pos": 25,
+      "name": "#009 RIBERAS / SØRENSEN",
+      "team": "ASTON MARTIN THOR TEAM",
+      "total": 6
+     },
+     {
+      "pos": 26,
       "name": "#101 TAYLOR",
       "team": "CADILLAC WTR",
       "total": 2
      },
      {
-      "pos": 25,
+      "pos": 27,
       "name": "#19 JUNCADELLA / JAMINET / CHATIN",
       "team": "GENESIS MAGMA RACING",
       "total": 0
      },
      {
-      "pos": 26,
+      "pos": 28,
+      "name": "#93 QUINN",
+      "team": "PEUGEOT TOTALENERGIES",
+      "total": 0
+     },
+     {
+      "pos": 29,
       "name": "#009 DE ANGELIS",
       "team": "ASTON MARTIN THOR TEAM",
       "total": 0
@@ -165,32 +183,32 @@
      {
       "pos": 1,
       "name": "TOYOTA",
-      "total": 169
+      "total": 212
      },
      {
       "pos": 2,
       "name": "BMW",
-      "total": 146
+      "total": 154
      },
      {
       "pos": 3,
       "name": "FERRARI",
-      "total": 115
+      "total": 130
      },
      {
       "pos": 4,
-      "name": "ALPINE",
-      "total": 96
+      "name": "CADILLAC",
+      "total": 118
      },
      {
       "pos": 5,
-      "name": "CADILLAC",
-      "total": 96
+      "name": "ALPINE",
+      "total": 104
      },
      {
       "pos": 6,
       "name": "ASTON MARTIN",
-      "total": 54
+      "total": 58
      },
      {
       "pos": 7,
@@ -200,7 +218,7 @@
      {
       "pos": 8,
       "name": "GENESIS",
-      "total": 12
+      "total": 14
      }
     ]
    },
@@ -210,85 +228,85 @@
       "pos": 1,
       "name": "#33 EDGAR",
       "team": "TF SPORT",
-      "total": 86
+      "total": 92
      },
      {
       "pos": 2,
       "name": "#33 CATSBURG",
       "team": "TF SPORT",
-      "total": 82
+      "total": 88
      },
      {
       "pos": 3,
-      "name": "#33 KEATING",
-      "team": "TF SPORT",
-      "total": 64
+      "name": "#92 PERA / LIETZ / SHAHIN",
+      "team": "THE BEND MANTHEY",
+      "total": 74
      },
      {
       "pos": 4,
-      "name": "#27 JAMES / DRUDI / ROBICHON",
-      "team": "HEART OF RACING TEAM",
-      "total": 62
+      "name": "#34 EASTWOOD / DEMPSEY / YOLUÇ",
+      "team": "RACING TEAM TURKEY BY TF",
+      "total": 70
      },
      {
       "pos": 5,
-      "name": "#34 EASTWOOD / DEMPSEY / YOLUÇ",
-      "team": "RACING TEAM TURKEY BY TF",
-      "total": 58
+      "name": "#33 KEATING",
+      "team": "TF SPORT",
+      "total": 70
      },
      {
       "pos": 6,
-      "name": "#91 GÜVEN / COTTINGHAM / BOGUSLAVSKIY",
-      "team": "MANTHEY DK ENGINEERING",
-      "total": 54
+      "name": "#69 MCINTOSH / HARPER / THOMPSON",
+      "team": "TEAM WRT",
+      "total": 66
      },
      {
       "pos": 7,
       "name": "#21 ROVERA / HÉRIAU / MANN",
       "team": "VISTA AF CORSE",
-      "total": 54
+      "total": 64
      },
      {
       "pos": 8,
-      "name": "#69 MCINTOSH / HARPER / THOMPSON",
-      "team": "TEAM WRT",
-      "total": 51
+      "name": "#27 JAMES / DRUDI / ROBICHON",
+      "team": "HEART OF RACING TEAM",
+      "total": 62
      },
      {
       "pos": 9,
-      "name": "#92 PERA / LIETZ / SHAHIN",
-      "team": "THE BEND MANTHEY",
-      "total": 49
+      "name": "#10 AU / KIRCHHÖFER / FLEMING",
+      "team": "GARAGE 59",
+      "total": 57
      },
      {
       "pos": 10,
-      "name": "#23 NEWELL / ADAM",
-      "team": "HEART OF RACING TEAM",
-      "total": 49
+      "name": "#91 GÜVEN / COTTINGHAM / BOGUSLAVSKIY",
+      "team": "MANTHEY DK ENGINEERING",
+      "total": 54
      },
      {
       "pos": 11,
-      "name": "#32 FARFUS / LEUNG / GELAEL",
-      "team": "TEAM WRT",
-      "total": 47
+      "name": "#23 NEWELL / ADAM",
+      "team": "HEART OF RACING TEAM",
+      "total": 51
      },
      {
       "pos": 12,
-      "name": "#23 BARRICHELLO",
-      "team": "HEART OF RACING TEAM",
-      "total": 46
+      "name": "#32 FARFUS / LEUNG / GELAEL",
+      "team": "TEAM WRT",
+      "total": 48
      },
      {
       "pos": 13,
-      "name": "#78 DAVID / VAN ROMPUY",
-      "team": "AKKODIS ASP TEAM",
-      "total": 39
+      "name": "#23 BARRICHELLO",
+      "team": "HEART OF RACING TEAM",
+      "total": 48
      },
      {
       "pos": 14,
-      "name": "#10 AU / KIRCHHÖFER / FLEMING",
-      "team": "GARAGE 59",
-      "total": 38
+      "name": "#78 DAVID / VAN ROMPUY",
+      "team": "AKKODIS ASP TEAM",
+      "total": 39
      },
      {
       "pos": 15,
@@ -304,21 +322,21 @@
      },
      {
       "pos": 17,
+      "name": "#61 BERRY / MARTIN / ANDRADE",
+      "team": "IRON LYNX",
+      "total": 25
+     },
+     {
+      "pos": 18,
       "name": "#33 MCDONALD",
       "team": "TF SPORT",
       "total": 22
      },
      {
-      "pos": 18,
+      "pos": 19,
       "name": "#58 WEST / GOETHE / GEHRSITZ",
       "team": "GARAGE 59",
       "total": 22
-     },
-     {
-      "pos": 19,
-      "name": "#61 BERRY / MARTIN / ANDRADE",
-      "team": "IRON LYNX",
-      "total": 17
      },
      {
       "pos": 20,
@@ -342,7 +360,7 @@
       "pos": 23,
       "name": "#79 ZELGER / HODENIUS / CRESSONI",
       "team": "IRON LYNX",
-      "total": 6
+      "total": 10
      },
      {
       "pos": 24,
@@ -367,57 +385,57 @@
      {
       "pos": 1,
       "name": "#33 TF SPORT",
-      "total": 86
+      "total": 92
      },
      {
       "pos": 2,
-      "name": "#27 HEART OF RACING TEAM",
-      "total": 62
+      "name": "#92 THE BEND MANTHEY",
+      "total": 74
      },
      {
       "pos": 3,
       "name": "#34 RACING TEAM TURKEY BY TF",
-      "total": 58
+      "total": 70
      },
      {
       "pos": 4,
-      "name": "#91 MANTHEY DK ENGINEERING",
-      "total": 54
+      "name": "#69 TEAM WRT",
+      "total": 66
      },
      {
       "pos": 5,
       "name": "#21 VISTA AF CORSE",
-      "total": 54
+      "total": 64
      },
      {
       "pos": 6,
-      "name": "#69 TEAM WRT",
-      "total": 51
+      "name": "#27 HEART OF RACING TEAM",
+      "total": 62
      },
      {
       "pos": 7,
-      "name": "#92 THE BEND MANTHEY",
-      "total": 49
+      "name": "#10 GARAGE 59",
+      "total": 57
      },
      {
       "pos": 8,
-      "name": "#23 HEART OF RACING TEAM",
-      "total": 49
+      "name": "#91 MANTHEY DK ENGINEERING",
+      "total": 54
      },
      {
       "pos": 9,
-      "name": "#32 TEAM WRT",
-      "total": 47
+      "name": "#23 HEART OF RACING TEAM",
+      "total": 51
      },
      {
       "pos": 10,
-      "name": "#78 AKKODIS ASP TEAM",
-      "total": 39
+      "name": "#32 TEAM WRT",
+      "total": 48
      },
      {
       "pos": 11,
-      "name": "#10 GARAGE 59",
-      "total": 38
+      "name": "#78 AKKODIS ASP TEAM",
+      "total": 39
      },
      {
       "pos": 12,
@@ -426,13 +444,13 @@
      },
      {
       "pos": 13,
-      "name": "#58 GARAGE 59",
-      "total": 22
+      "name": "#61 IRON LYNX",
+      "total": 25
      },
      {
       "pos": 14,
-      "name": "#61 IRON LYNX",
-      "total": 17
+      "name": "#58 GARAGE 59",
+      "total": 22
      },
      {
       "pos": 15,
@@ -452,11 +470,11 @@
      {
       "pos": 18,
       "name": "#79 IRON LYNX",
-      "total": 6
+      "total": 10
      }
     ]
    }
   }
  },
- "updated": "2026-10-10 19:27 UTC"
+ "updated": "2026-10-18 23:36 UTC"
 }
