@@ -256,7 +256,10 @@
   .rtile b { display: block; font-family: 'Press Start 2P', monospace; font-weight: normal; font-size: 8px; color: var(--ink-muted); margin-bottom: 6px; }
   .rtile.done { background: #1D1A12; color: var(--ink-muted); }
   .rtile.done::after { content: "\2713"; position: absolute; right: 8px; top: 8px; color: var(--overall); font-size: 20px; }
-  .rtile.now { border-color: var(--green); color: #F2F2F2; animation: blink 1.2s steps(2) infinite; }
+  .rtile.now { border-color: var(--green); background: var(--green-tint); color: #F2F2F2; box-shadow: 4px 4px 0 var(--shadow); }
+  .rtile.now b { color: var(--green); }
+  .rtile.now::after { content: "NEXT"; position: absolute; right: 6px; top: 6px; font-family: 'Press Start 2P', monospace; font-size: 7px; line-height: 1; padding: 4px 5px; background: var(--green); color: #000; }
+  .rtile.now:hover { background: #17432A; }
   .rtile:hover { background: var(--panel-edge); }
   .hs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; }
   .hs-row { display: flex; align-items: baseline; gap: 8px; font-size: 21px; padding: 3px 0; color: #F2F2F2; }
@@ -389,6 +392,8 @@ function carsForTeam(name) {
       const a = " " + tk + " ", b = " " + k + " ";
       if (a.includes(b) || b.includes(a)) cars = cars.concat(maps.teamCars[tk]);
     });
+    const seen = {};      // the same car can sit under two spellings of a team name: keep it once
+    cars = cars.filter((c) => (seen[c.car] ? false : (seen[c.car] = true)));
   }
   return (cars || []).filter((c) => classMatches(c.cls));
 }
