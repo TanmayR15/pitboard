@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "updated": "2026-10-18 23:35 UTC",
+ "updated": "2026-10-24 23:35 UTC",
  "tables": {
   "overall": {
    "overall": {
@@ -3316,113 +3316,53 @@
     "teams": [
      {
       "pos": 1,
-      "name": "Winward Racing",
-      "total": 87.0
+      "name": "Rowe Racing",
+      "total": 107.0
      },
      {
       "pos": 2,
-      "name": "Team WRT",
-      "total": 66.0
+      "name": "AF Corse",
+      "total": 104.0
      },
      {
       "pos": 3,
-      "name": "Comtoyou Racing",
-      "total": 60.0
+      "name": "Garage 59",
+      "total": 86.0
      },
      {
       "pos": 4,
-      "name": "Lionspeed GP",
-      "total": 48.0
+      "name": "CSA Racing",
+      "total": 72.0
      },
      {
       "pos": 5,
-      "name": "Boutsen VDS",
-      "total": 45.0
+      "name": "Steller Motorsport",
+      "total": 49.0
      },
      {
       "pos": 6,
-      "name": "GetSpeed",
-      "total": 44.0
+      "name": "Boutsen VDS",
+      "total": 48.0
      },
      {
       "pos": 7,
-      "name": "Garage 59",
-      "total": 42.0
+      "name": "Optimum Motorsport",
+      "total": 48.0
      },
      {
       "pos": 8,
-      "name": "Rowe Racing",
-      "total": 39.0
+      "name": "Tresor Attempto Racing",
+      "total": 40.0
      },
      {
       "pos": 9,
-      "name": "Tresor Attempto Racing",
-      "total": 31.0
+      "name": "JMW Motorsport",
+      "total": 15.0
      },
      {
       "pos": 10,
-      "name": "AF Corse",
-      "total": 29.0
-     },
-     {
-      "pos": 11,
-      "name": "2Seas Motorsport",
-      "total": 29.0
-     },
-     {
-      "pos": 12,
-      "name": "CSA Racing",
-      "total": 21.0
-     },
-     {
-      "pos": 13,
-      "name": "Kessel Racing",
-      "total": 20.0
-     },
-     {
-      "pos": 14,
-      "name": "HRT Ford Racing",
-      "total": 16.0
-     },
-     {
-      "pos": 15,
-      "name": "Walkenhorst Motorsport",
-      "total": 13.0
-     },
-     {
-      "pos": 16,
-      "name": "Eastalent Racing",
-      "total": 12.0
-     },
-     {
-      "pos": 17,
       "name": "Paradine Competition",
-      "total": 11.0
-     },
-     {
-      "pos": 18,
-      "name": "Team RJN",
-      "total": 8.0
-     },
-     {
-      "pos": 19,
-      "name": "Rutronik Racing",
-      "total": 7.0
-     },
-     {
-      "pos": 20,
-      "name": "Ecurie Ecosse Blackthorn",
-      "total": 2.0
-     },
-     {
-      "pos": 21,
-      "name": "Dinamic GT",
-      "total": 1.0
-     },
-     {
-      "pos": 21,
-      "name": "Rinaldi Racing",
-      "total": 1.0
+      "total": 12.0
      }
     ]
    },
@@ -3431,57 +3371,57 @@
      {
       "pos": 1,
       "name": "Ugo De Wilde",
-      "total": 114.0
+      "total": 107.0
      },
      {
       "pos": 1,
       "name": "Jens Klingmann",
-      "total": 114.0
+      "total": 107.0
      },
      {
       "pos": 1,
       "name": "Tim Tramnitz",
-      "total": 114.0
+      "total": 107.0
      },
      {
       "pos": 2,
-      "name": "Benjamin Goethe",
-      "total": 86.0
+      "name": "Frederik Schandorff",
+      "total": 104.0
      },
      {
       "pos": 2,
+      "name": "Simon Birch",
+      "total": 104.0
+     },
+     {
+      "pos": 2,
+      "name": "Malte Ebdrup",
+      "total": 104.0
+     },
+     {
+      "pos": 3,
       "name": "Louis Prette",
       "total": 86.0
      },
      {
-      "pos": 2,
-      "name": "Thomas Fleming",
+      "pos": 3,
+      "name": "Benjamin Goethe",
       "total": 86.0
      },
      {
       "pos": 3,
-      "name": "Simon Birch",
-      "total": 79.0
-     },
-     {
-      "pos": 3,
-      "name": "Frederik Schandorff",
-      "total": 79.0
-     },
-     {
-      "pos": 3,
-      "name": "Malte Ebdrup",
-      "total": 79.0
+      "name": "Thomas Fleming",
+      "total": 86.0
      },
      {
       "pos": 4,
       "name": "Simon Gachet",
-      "total": 74.0
+      "total": 72.0
      },
      {
       "pos": 4,
       "name": "James Kell",
-      "total": 74.0
+      "total": 72.0
      },
      {
       "pos": 5,
@@ -3490,32 +3430,32 @@
      },
      {
       "pos": 6,
-      "name": "Adam Smalley",
-      "total": 51.0
-     },
-     {
-      "pos": 6,
-      "name": "Freddie Tomlinson",
-      "total": 51.0
-     },
-     {
-      "pos": 6,
-      "name": "Harry George",
-      "total": 51.0
+      "name": "Dennis Lind",
+      "total": 49.0
      },
      {
       "pos": 7,
-      "name": "Dennis Lind",
-      "total": 51.0
-     },
-     {
-      "pos": 8,
       "name": "Gilles Magnus",
       "total": 48.0
      },
      {
-      "pos": 8,
+      "pos": 7,
       "name": "Robin Knutsson",
+      "total": 48.0
+     },
+     {
+      "pos": 8,
+      "name": "Adam Smalley",
+      "total": 48.0
+     },
+     {
+      "pos": 8,
+      "name": "Freddie Tomlinson",
+      "total": 48.0
+     },
+     {
+      "pos": 8,
+      "name": "Harry George",
       "total": 48.0
      },
      {
@@ -3526,17 +3466,17 @@
      {
       "pos": 10,
       "name": "Dylan Pereira",
-      "total": 42.0
+      "total": 40.0
      },
      {
       "pos": 10,
       "name": "Andrea Frassineti",
-      "total": 42.0
+      "total": 40.0
      },
      {
       "pos": 11,
       "name": "Alex Aka",
-      "total": 41.0
+      "total": 39.0
      },
      {
       "pos": 12,
@@ -3546,7 +3486,7 @@
      {
       "pos": 13,
       "name": "Mikkel Mac",
-      "total": 30.0
+      "total": 28.0
      },
      {
       "pos": 14,
@@ -3565,46 +3505,46 @@
      },
      {
       "pos": 17,
-      "name": "Konsta Lappalainen",
-      "total": 18.0
-     },
-     {
-      "pos": 17,
       "name": "Nico Menzel",
       "total": 18.0
      },
      {
       "pos": 18,
+      "name": "Konsta Lappalainen",
+      "total": 15.0
+     },
+     {
+      "pos": 19,
       "name": "Christian Hahn",
       "total": 12.0
      },
      {
-      "pos": 18,
+      "pos": 19,
       "name": "Robert De Haan",
       "total": 12.0
      },
      {
-      "pos": 18,
+      "pos": 19,
       "name": "Ashley Sutton",
       "total": 12.0
      },
      {
-      "pos": 19,
+      "pos": 20,
       "name": "Lenny Ried",
       "total": 12.0
      },
      {
-      "pos": 19,
+      "pos": 20,
       "name": "Mikkel Pedersen",
       "total": 12.0
      },
      {
-      "pos": 20,
+      "pos": 21,
       "name": "Lorenzo Fluxa Cross",
       "total": 9.0
      },
      {
-      "pos": 21,
+      "pos": 22,
       "name": "Lorenzo Ferrari",
       "total": 1.0
      }
