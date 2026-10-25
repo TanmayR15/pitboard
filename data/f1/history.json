@@ -788,7 +788,54 @@
      }
     }
    }
+  },
+  {
+   "round": 18,
+   "name": "United States GP",
+   "estimated": false,
+   "tables": {
+    "overall/overall": {
+     "drivers": {
+      "andrea kimi antonelli": 365,
+      "george russell": 242,
+      "lewis hamilton": 241,
+      "max verstappen": 236,
+      "charles leclerc": 233,
+      "lando norris": 211,
+      "oscar piastri": 144,
+      "isack hadjar": 105,
+      "liam lawson": 77,
+      "pierre gasly": 42,
+      "arvid lindblad": 38,
+      "franco colapinto": 27,
+      "oliver bearman": 23,
+      "nico hulkenberg": 13,
+      "gabriel bortoleto": 10,
+      "esteban ocon": 7,
+      "fernando alonso": 7,
+      "carlos sainz": 7,
+      "alexander albon": 5,
+      "yuki tsunoda": 1,
+      "lance stroll": 0,
+      "valtteri bottas": 0,
+      "sergio perez": 0
+     },
+     "teams": {
+      "mercedes": 607,
+      "ferrari": 474,
+      "red bull": 355,
+      "mclaren": 355,
+      "rb f1 team": 102,
+      "alpine f1 team": 69,
+      "haas f1 team": 30,
+      "audi": 23,
+      "williams": 12,
+      "aston martin": 7,
+      "cadillac f1 team": 0
+     }
+    }
+   }
   }
  ],
- "updated": "2026-10-12 00:43 UTC"
+ "updated": "2026-10-25 23:30 UTC"
 }
