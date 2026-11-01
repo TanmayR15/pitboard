@@ -3694,16 +3694,28 @@
       "angus whiteside": 1.0
      },
      "teams": {
-      "rowe racing": 107.0,
-      "af corse": 104.0,
-      "garage 59": 86.0,
-      "csa racing": 72.0,
-      "steller motorsport": 49.0,
-      "boutsen vds": 48.0,
-      "optimum motorsport": 48.0,
-      "tresor attempto racing": 40.0,
-      "jmw motorsport": 15.0,
-      "paradine competition": 12.0
+      "winward racing": 87.0,
+      "team wrt": 66.0,
+      "comtoyou racing": 60.0,
+      "lionspeed gp": 48.0,
+      "boutsen vds": 45.0,
+      "getspeed": 44.0,
+      "garage 59": 42.0,
+      "rowe racing": 39.0,
+      "tresor attempto racing": 31.0,
+      "af corse": 29.0,
+      "2seas motorsport": 29.0,
+      "csa racing": 21.0,
+      "kessel racing": 20.0,
+      "hrt ford racing": 16.0,
+      "walkenhorst motorsport": 13.0,
+      "eastalent racing": 12.0,
+      "paradine competition": 11.0,
+      "team rjn": 8.0,
+      "rutronik racing": 7.0,
+      "ecurie ecosse blackthorn": 2.0,
+      "dinamic gt": 1.0,
+      "rinaldi racing": 1.0
      }
     },
     "endurance/gold": {
@@ -3847,8 +3859,8 @@
     },
     "endurance/bronze": {
      "drivers": {
-      "dennis marschall": 112.0,
       "dustin blattner": 97.0,
+      "dennis marschall": 97.0,
       "darren leung": 84.0,
       "james kellett": 84.0,
       "reece barr": 82.0,
@@ -3941,5 +3953,5 @@
    }
   }
  ],
- "updated": "2026-10-24 23:35 UTC"
+ "updated": "2026-11-01 00:22 UTC"
 }

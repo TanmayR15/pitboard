@@ -164,6 +164,13 @@
       "team": "Cadillac F1 Team",
       "total": 0,
       "wins": 0
+     },
+     {
+      "pos": 24,
+      "name": "Ryo Hirakawa",
+      "team": "Haas F1 Team",
+      "total": 0,
+      "wins": 0
      }
     ],
     "teams": [
@@ -237,5 +244,5 @@
    }
   }
  },
- "updated": "2026-10-25 23:30 UTC"
+ "updated": "2026-11-01 00:22 UTC"
 }
