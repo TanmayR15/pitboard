@@ -5568,7 +5568,241 @@
      ]
     }
    ]
+  },
+  {
+   "id": "mexico-city-gp",
+   "round": 19,
+   "name": "Mexico City GP",
+   "cup": "Grand Prix",
+   "sessions": [
+    {
+     "id": "main-race",
+     "name": "Race",
+     "rows": [
+      {
+       "pos": 1,
+       "car": "3",
+       "drivers": "Max Verstappen",
+       "team": "Red Bull",
+       "model": "",
+       "time": "2:20:28.772",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 2,
+       "car": "44",
+       "drivers": "Lewis Hamilton",
+       "team": "Ferrari",
+       "model": "",
+       "time": "+0.799",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 3,
+       "car": "12",
+       "drivers": "Andrea Kimi Antonelli",
+       "team": "Mercedes",
+       "model": "",
+       "time": "+4.006",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 4,
+       "car": "16",
+       "drivers": "Charles Leclerc",
+       "team": "Ferrari",
+       "model": "",
+       "time": "+10.707",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 5,
+       "car": "1",
+       "drivers": "Lando Norris",
+       "team": "McLaren",
+       "model": "",
+       "time": "+11.778",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 6,
+       "car": "63",
+       "drivers": "George Russell",
+       "team": "Mercedes",
+       "model": "",
+       "time": "+12.263",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 7,
+       "car": "81",
+       "drivers": "Oscar Piastri",
+       "team": "McLaren",
+       "model": "",
+       "time": "+19.475",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 8,
+       "car": "43",
+       "drivers": "Franco Colapinto",
+       "team": "Alpine F1 Team",
+       "model": "",
+       "time": "+20.204",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 9,
+       "car": "30",
+       "drivers": "Liam Lawson",
+       "team": "RB F1 Team",
+       "model": "",
+       "time": "+20.899",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 10,
+       "car": "10",
+       "drivers": "Pierre Gasly",
+       "team": "Alpine F1 Team",
+       "model": "",
+       "time": "+21.483",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 11,
+       "car": "5",
+       "drivers": "Gabriel Bortoleto",
+       "team": "Audi",
+       "model": "",
+       "time": "+22.041",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 12,
+       "car": "6",
+       "drivers": "Isack Hadjar",
+       "team": "Red Bull",
+       "model": "",
+       "time": "+22.503",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 13,
+       "car": "50",
+       "drivers": "Ryo Hirakawa",
+       "team": "Haas F1 Team",
+       "model": "",
+       "time": "+25.373",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 14,
+       "car": "23",
+       "drivers": "Alexander Albon",
+       "team": "Williams",
+       "model": "",
+       "time": "+27.562",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 15,
+       "car": "55",
+       "drivers": "Carlos Sainz",
+       "team": "Williams",
+       "model": "",
+       "time": "+28.638",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 16,
+       "car": "27",
+       "drivers": "Nico Hülkenberg",
+       "team": "Audi",
+       "model": "",
+       "time": "+29.977",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 17,
+       "car": "11",
+       "drivers": "Sergio Pérez",
+       "team": "Cadillac F1 Team",
+       "model": "",
+       "time": "+30.695",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 18,
+       "car": "41",
+       "drivers": "Arvid Lindblad",
+       "team": "RB F1 Team",
+       "model": "",
+       "time": "Retired",
+       "laps": 58,
+       "cls": ""
+      },
+      {
+       "pos": 19,
+       "car": "87",
+       "drivers": "Oliver Bearman",
+       "team": "Haas F1 Team",
+       "model": "",
+       "time": "Retired",
+       "laps": 47,
+       "cls": ""
+      },
+      {
+       "pos": 20,
+       "car": "77",
+       "drivers": "Valtteri Bottas",
+       "team": "Cadillac F1 Team",
+       "model": "",
+       "time": "Retired",
+       "laps": 42,
+       "cls": ""
+      },
+      {
+       "pos": 21,
+       "car": "18",
+       "drivers": "Lance Stroll",
+       "team": "Aston Martin",
+       "model": "",
+       "time": "Retired",
+       "laps": 5,
+       "cls": ""
+      },
+      {
+       "pos": 22,
+       "car": "14",
+       "drivers": "Fernando Alonso",
+       "team": "Aston Martin",
+       "model": "",
+       "time": "Retired",
+       "laps": 5,
+       "cls": ""
+      }
+     ]
+    }
+   ]
   }
  ],
- "updated": "2026-10-25 23:30 UTC"
+ "updated": "2026-11-02 13:45 UTC"
 }

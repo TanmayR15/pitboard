@@ -843,18 +843,18 @@
    "tables": {
     "overall/overall": {
      "drivers": {
-      "andrea kimi antonelli": 365,
-      "george russell": 242,
-      "lewis hamilton": 241,
-      "max verstappen": 236,
-      "charles leclerc": 233,
-      "lando norris": 211,
-      "oscar piastri": 144,
+      "andrea kimi antonelli": 380,
+      "max verstappen": 261,
+      "lewis hamilton": 259,
+      "george russell": 250,
+      "charles leclerc": 245,
+      "lando norris": 221,
+      "oscar piastri": 150,
       "isack hadjar": 105,
-      "liam lawson": 77,
-      "pierre gasly": 42,
+      "liam lawson": 79,
+      "pierre gasly": 43,
       "arvid lindblad": 38,
-      "franco colapinto": 27,
+      "franco colapinto": 31,
       "oliver bearman": 23,
       "nico hulkenberg": 13,
       "gabriel bortoleto": 10,
@@ -865,16 +865,16 @@
       "yuki tsunoda": 1,
       "lance stroll": 0,
       "valtteri bottas": 0,
-      "sergio perez": 0,
-      "ryo hirakawa": 0
+      "ryo hirakawa": 0,
+      "sergio perez": 0
      },
      "teams": {
-      "mercedes": 607,
-      "ferrari": 474,
-      "red bull": 355,
-      "mclaren": 355,
-      "rb f1 team": 102,
-      "alpine f1 team": 69,
+      "mercedes": 630,
+      "ferrari": 504,
+      "red bull": 380,
+      "mclaren": 371,
+      "rb f1 team": 104,
+      "alpine f1 team": 74,
       "haas f1 team": 30,
       "audi": 23,
       "williams": 12,
@@ -885,5 +885,5 @@
    }
   }
  ],
- "updated": "2026-11-01 00:22 UTC"
+ "updated": "2026-11-02 13:45 UTC"
 }
