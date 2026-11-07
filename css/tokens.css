@@ -64,16 +64,16 @@
   --font-display: "Press Start 2P", ui-monospace, Menlo, Consolas, monospace;   /* wordmark, headings, buttons, labels */
   --font-mono:    "VT323", ui-monospace, Menlo, Consolas, monospace;            /* body text, names, rows */
   /* VT323 sizes (reads small, so larger numbers) */
-  --fs-caption: 16px;   /* notes, meta, secondary text */
-  --fs-body:    20px;   /* rows, controls, running text */
-  --fs-title:   22px;   /* names inside rows and cards */
+  --fs-caption: 20px;   /* notes, meta, secondary text */
+  --fs-body:    24px;   /* rows, controls, running text */
+  --fs-title:   28px;   /* names inside rows and cards */
   /* Press Start 2P sizes (very wide, so smaller numbers) */
-  --fs-pixel:    9px;   /* buttons, tabs, chips */
-  --fs-pixel-sm: 8px;   /* table heads, badges, tags, labels */
-  --fs-pixel-md: 11px;  /* panel titles */
-  --fs-h2:      16px;   /* page and hero titles */
-  --fs-display: 20px;   /* wordmark */
-  --fs-numeral: 32px;   /* countdown */
+  --fs-pixel:   12px;   /* buttons, tabs, chips */
+  --fs-pixel-sm: 10px;   /* table heads, badges, tags, labels */
+  --fs-pixel-md: 14px;  /* panel titles */
+  --fs-h2:      24px;   /* page and hero titles */
+  --fs-display: 28px;   /* wordmark */
+  --fs-numeral: 48px;   /* countdown */
 
   /* ---- space (4px grid) ---- */
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
