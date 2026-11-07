@@ -128,7 +128,7 @@
 /* ---------- progression chart ---------- */
 .pp-wrap { overflow-x: auto; }
 .pp-svg { width: 100%; min-width: 560px; height: auto; display: block; }
-.pp-svg text { font-family: var(--font-mono); font-size: 16px; fill: var(--text-dim); }
+.pp-svg text { font-family: var(--font-mono); font-size: 12px; fill: var(--text-dim); }
 .pp-svg text.lab { font-weight: 600; }
 .pp-svg .grid { stroke: var(--line); stroke-width: 1; }
 .pp-legend { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4); margin-top: var(--s-3); font-size: var(--fs-caption); color: var(--text-muted); }
@@ -137,7 +137,7 @@
 /* ---------- responsive ---------- */
 @media (max-width: 760px) {
   .home-cols { grid-template-columns: 1fr; gap: var(--s-6); }
-  .count-cell b { font-size: 20px; }
+  .count-cell b { font-size: 32px; }
 }
 @media (max-width: 640px) {
   .round-head { padding: var(--s-3); gap: var(--s-2); }
@@ -150,26 +150,3 @@
   .srow .stime { order: 3; margin-left: auto; }
   .week-band .wrap { flex-wrap: wrap; }
 }
-
-/* ==========================================================================
-   Retro type pass: Press Start 2P for the "interface" text, VT323 for reading text.
-   Kept last so it overrides the sizes above. Single weight, no tracking.
-   ========================================================================== */
-.wordmark, .page-title, .next-name, .panel-title, .pg-card h3, .count-cell b,
-.btn, .seg .btn, .tab, .chip, .cls-chip, .badge, .tag, .carno, .week-label, .status, .pg-colh, .label, .data-table th {
-  font-family: var(--font-display); font-weight: 400; letter-spacing: 0;
-}
-.wordmark { font-size: var(--fs-display); line-height: 1.4; }
-.page-title, .next-name { font-size: var(--fs-h2); line-height: 1.5; }
-.panel-title, .pg-card h3 { font-size: var(--fs-pixel-md); line-height: 1.5; }
-.count-cell b { font-size: var(--fs-numeral); line-height: 1.2; }
-.btn, .seg .btn, .tab, .chip, .cls-chip, .week-label { font-size: var(--fs-pixel); line-height: 1.5; }
-.badge, .tag, .carno, .status, .pg-colh { font-size: var(--fs-pixel-sm); line-height: 16px; }
-.chip { padding: var(--s-3) var(--s-4); }
-.tab { padding: var(--s-2) var(--s-3); }
-.seg .btn, .btn-step { padding-top: 0; padding-bottom: 0; }
-.badge, .tag { padding-top: 4px; padding-bottom: 4px; }
-.carno { padding: 4px var(--s-2); }
-.brand-cap, .tz { letter-spacing: 0.04em; }
-@media (max-width: 640px) { .wordmark { font-size: 16px; } .next-name { font-size: 12px; } }
-.label, .data-table th { font-size: var(--fs-pixel-sm); line-height: 1.5; }
