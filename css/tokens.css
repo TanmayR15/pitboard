@@ -1,15 +1,13 @@
 /* ==========================================================================
-   Pit Board design tokens — raceweek.io design system
+   Pit Board design tokens — raceweek.io design system, original retro fonts
    Source of truth: raceweek-design/SKILL.md + tokens/*.json, with the values
    the written docs omit sampled directly from the raceweek screenshots.
    Rules: flat (no shadows, no gradients, no blur), 4px grid, radius 3px / 6px,
    no pills, one accent.
    ========================================================================== */
 
-@font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono-Regular.ttf")  format("truetype"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono-Medium.ttf")   format("truetype"); font-weight: 500; font-display: swap; }
-@font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
-@font-face { font-family: "JetBrains Mono"; src: url("../fonts/JetBrainsMono-Bold.ttf")     format("truetype"); font-weight: 700; font-display: swap; }
+@font-face { font-family: "Press Start 2P"; src: url("../fonts/PressStart2P-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "VT323"; src: url("../fonts/VT323-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
 
 :root {
   color-scheme: dark;
@@ -63,14 +61,19 @@
   --c-race:        #e85d2f;
 
   /* ---- type ---- */
-  --font-display: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --font-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  --fs-caption: 12px;   /* labels, table headers, meta */
-  --fs-body:    14px;   /* rows, controls, running text */
-  --fs-title:   16px;   /* names inside rows and cards */
-  --fs-h2:      24px;   /* page and hero titles */
-  --fs-display: 32px;   /* wordmark */
-  --fs-numeral: 48px;   /* countdown */
+  --font-display: "Press Start 2P", ui-monospace, Menlo, Consolas, monospace;   /* wordmark, headings, buttons, labels */
+  --font-mono:    "VT323", ui-monospace, Menlo, Consolas, monospace;            /* body text, names, rows */
+  /* VT323 sizes (reads small, so larger numbers) */
+  --fs-caption: 16px;   /* notes, meta, secondary text */
+  --fs-body:    20px;   /* rows, controls, running text */
+  --fs-title:   22px;   /* names inside rows and cards */
+  /* Press Start 2P sizes (very wide, so smaller numbers) */
+  --fs-pixel:    9px;   /* buttons, tabs, chips */
+  --fs-pixel-sm: 8px;   /* table heads, badges, tags, labels */
+  --fs-pixel-md: 11px;  /* panel titles */
+  --fs-h2:      16px;   /* page and hero titles */
+  --fs-display: 20px;   /* wordmark */
+  --fs-numeral: 32px;   /* countdown */
 
   /* ---- space (4px grid) ---- */
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
