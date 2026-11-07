@@ -6,27 +6,1664 @@
 <meta name="theme-color" content="#0a0a0b" />
 <title>Motorsport Pit Board</title>
 <link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   Pit Board design tokens — raceweek.io design system
+   Source of truth: raceweek-design/SKILL.md + tokens/*.json, with the values
+   the written docs omit sampled directly from the raceweek screenshots.
+   Rules: flat (no shadows, no gradients, no blur), 4px grid, radius 3px / 6px,
+   no pills, one accent.
+   ========================================================================== */
 
-<!-- Design system: tokens first, then base, components, pages -->
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/pages.css">
+
+:root {
+  color-scheme: dark;
+
+  /* ---- surfaces (elevation = lighter surface + border, never shadow) ---- */
+  --bg:           #0a0a0b;   /* page */
+  --card:         #111113;   /* panels, collapsed round cards, list wells */
+  --card-open:    #0d0d0f;   /* body of an expanded card */
+  --surface:      #161618;   /* controls: inputs, buttons, badges */
+  --surface-hi:   #1d1d1e;   /* active segmented button */
+
+  /* ---- text ---- */
+  --text:         #e8e6e3;
+  --text-muted:   #888888;
+  --text-dim:     #666666;
+
+  /* ---- lines ---- */
+  --line:         #1a1a1c;   /* hairline dividers and card borders */
+  --line-soft:    #141416;   /* dividers inside a card */
+  --line-input:   #222222;   /* input border at rest */
+  --line-control: #333333;   /* button border at rest */
+  --line-focus:   #444444;   /* input border on focus */
+  --border:       #555555;   /* hover / active border */
+
+  /* ---- accent: raceweek orange, used for chips, active, "this week" ---- */
+  --accent:       #e85d2f;
+  --accent-tint:  #2a1610;   /* highlighted row / header */
+  --accent-band:  #170e0d;   /* full-width "this week" band */
+  --accent-line:  #88391f;   /* border of a highlighted card */
+
+  /* ---- status + links ---- */
+  --live:         #e83232;
+  --link:         #4a6fa5;
+  --link-hover:   #7c9cc0;
+  --focus:        #eeeeee;
+
+  /* ---- data colours: the swatches raceweek already uses for series badges ----
+     The system has no green, purple or bronze, so classes map onto these.      */
+  --c-sprint:      #e85d2f;
+  --c-endurance:   #4a90d9;
+  --c-long:        #d9a441;   /* 24-hour races */
+  --c-gold:        #d9a441;
+  --c-silver:      #7c9cc0;
+  --c-bronze:      #ff6600;
+  --c-hypercar:    #e10600;
+  --c-lmgt3:       #33ccff;
+  --c-pro-am:      #2196f3;
+  --c-independent: #5a7ea8;
+  --c-practice:    #4a90d9;
+  --c-quali:       #ffd633;
+  --c-race:        #e85d2f;
+
+  /* ---- type ---- */
+  --font-display: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --font-mono:    "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --fs-caption: 12px;   /* labels, table headers, meta */
+  --fs-body:    14px;   /* rows, controls, running text */
+  --fs-title:   16px;   /* names inside rows and cards */
+  --fs-h2:      24px;   /* page and hero titles */
+  --fs-display: 32px;   /* wordmark */
+  --fs-numeral: 48px;   /* countdown */
+
+  /* ---- space (4px grid) ---- */
+  --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px;
+  --s-5: 20px; --s-6: 24px; --s-8: 32px; --s-12: 48px;
+
+  /* ---- shape ---- */
+  --r-sm: 3px;
+  --r-md: 6px;
+  --max:  880px;
+
+  /* ---- motion: 0.15s colour/border changes only ---- */
+  --t: 0.15s;
+}
+
+/* ==========================================================================
+   Base: reset, typography, page shell
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  font: 400 var(--fs-body)/1.5 var(--font-mono);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, p, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+a { color: var(--link); text-decoration: none; transition: color var(--t); }
+a:hover { color: var(--link-hover); }
+
+button, input, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+button:disabled { cursor: default; }
+
+table { border-collapse: collapse; width: 100%; }
+
+::selection { background: var(--accent); color: var(--bg); }
+
+/* Visible keyboard focus everywhere (raceweek: light outline, not a shadow) */
+:focus { outline: none; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---- shell ---- */
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--s-6); }
+.page { padding-top: var(--s-6); padding-bottom: var(--s-12); }
+.page > * + *, .stack > * + * { margin-top: var(--s-4); }
+
+/* ---- shared micro-typography ---- */
+.label {                       /* tracked caption used for table heads and section labels */
+  font-size: var(--fs-caption);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.muted { color: var(--text-muted); }
+.num { font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+@media (max-width: 640px) {
+  .wrap { padding: 0 var(--s-4); }
+  .page { padding-top: var(--s-4); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+}
+
+/* ==========================================================================
+   Components
+   ========================================================================== */
+
+/* ---------- site header (raceweek: wordmark + mono caption, tagline below) ---------- */
+.site-header { border-bottom: 1px solid var(--line); }
+.site-header .wrap {
+  display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between;
+  gap: var(--s-4); padding-top: var(--s-8); padding-bottom: var(--s-6);
+}
+.brand-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-2) var(--s-3); }
+.wordmark {
+  font-family: var(--font-display); font-weight: 700; font-size: var(--fs-display);
+  line-height: 1.2; letter-spacing: -0.02em; color: var(--text); cursor: pointer;
+  background: none; border: 0; padding: 0;
+}
+.wordmark:hover { color: var(--text); }
+.wordmark .stop { color: var(--accent); }
+.brand-cap { font-size: var(--fs-caption); letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+.back-link {
+  font-size: var(--fs-caption); letter-spacing: 0.04em; color: var(--text-muted);
+  background: none; border: 0; padding: 0;
+}
+.back-link:hover { color: var(--text); }
+.tagline { margin-top: var(--s-2); color: var(--text-muted); }
+.header-meta { display: flex; flex-direction: column; align-items: flex-end; gap: var(--s-2); font-size: var(--fs-caption); color: var(--text-dim); }
+.tz {
+  display: inline-block; padding: var(--s-1) var(--s-2); border: 1px solid var(--line-control);
+  border-radius: var(--r-md); color: var(--text-muted); font-size: var(--fs-caption);
+}
+
+/* ---------- series chips + page tabs ---------- */
+.site-nav { border-bottom: 1px solid var(--line); }
+.site-nav .wrap { padding-top: var(--s-4); padding-bottom: var(--s-4); display: flex; flex-direction: column; gap: var(--s-4); }
+.chips, .tabs { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+
+.chip {
+  background: transparent; color: var(--accent);
+  border: 1px solid var(--accent); border-radius: var(--r-md);
+  padding: var(--s-2) var(--s-4); font-size: var(--fs-body); font-weight: 500;
+  transition: color var(--t), background var(--t), border-color var(--t);
+}
+.chip:hover { background: var(--accent-tint); }
+.chip[aria-pressed="true"] { background: var(--accent); color: var(--bg); font-weight: 600; }
+
+.tab {
+  background: transparent; color: var(--text-muted);
+  border: 1px solid var(--line-control); border-radius: var(--r-md);
+  padding: var(--s-1) var(--s-3); font-size: var(--fs-caption); font-weight: 500;
+  transition: color var(--t), border-color var(--t), background var(--t);
+}
+.tab:hover { color: var(--text); border-color: var(--border); }
+.tab[aria-current="page"] { background: var(--surface-hi); color: var(--text); border-color: var(--border); font-weight: 700; }
+
+/* ---------- buttons (ghost) ---------- */
+.btn {
+  background: transparent; color: var(--text-muted);
+  border: 1px solid var(--line-control); border-radius: var(--r-md);
+  padding: var(--s-2) var(--s-3); font-size: var(--fs-caption); font-weight: 500; line-height: 16px;
+  transition: color var(--t), border-color var(--t), background var(--t);
+}
+.btn:hover:not(:disabled) { color: var(--text); border-color: var(--border); }
+.btn[aria-pressed="true"] { background: var(--surface-hi); color: var(--text); border-color: var(--border); font-weight: 700; }
+.btn:disabled { color: var(--text-dim); border-color: var(--line); }
+.btn-step { padding: var(--s-2) var(--s-3); min-width: 40px; }
+
+/* ---------- fields ---------- */
+.controls { display: flex; flex-wrap: wrap; align-items: flex-end; gap: var(--s-3) var(--s-4); }
+.field { display: flex; flex-direction: column; gap: var(--s-1); min-width: 0; }
+.field.sel { flex: 1 1 160px; }
+.field.grow { flex: 2 1 280px; }
+.field-row { display: flex; align-items: center; gap: var(--s-2); }
+.field-row .select { flex: 1 1 200px; }
+
+.select, .input {
+  width: 100%; height: 40px; padding: var(--s-2) var(--s-3);
+  background: var(--card); color: var(--text);
+  border: 1px solid var(--line-input); border-radius: var(--r-md);
+  font-size: var(--fs-body);
+  transition: border-color var(--t);
+}
+.input::placeholder { color: var(--text-dim); }
+.input:hover, .select:hover { border-color: var(--line-control); }
+.input:focus, .select:focus { border-color: var(--line-focus); }
+.select {
+  appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: var(--s-8);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' fill='none' stroke='%23888888' stroke-width='1.5'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 12px center;
+  border-left: 3px solid var(--edge, var(--line-input));
+}
+.select option { background: var(--card); color: var(--text); }
+.seg { display: flex; gap: var(--s-2); }
+.seg .btn { height: 40px; padding: 0 var(--s-4); font-size: var(--fs-body); }
+
+/* class filter chips on Results (coloured by class) */
+.cls-chips { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.cls-chip {
+  background: transparent; color: var(--c, var(--text-muted));
+  border: 1px solid var(--c, var(--line-control)); border-radius: var(--r-sm);
+  padding: var(--s-1) var(--s-3); font-size: var(--fs-caption); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;
+  transition: background var(--t), color var(--t);
+}
+.cls-chip:hover { background: var(--card); }
+.cls-chip[aria-pressed="true"] { background: var(--c, var(--text)); color: var(--bg); }
+
+/* ---------- panel (flat card) ---------- */
+.panel { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-md); padding: var(--s-4); }
+.panel.edge { border-left: 3px solid var(--edge, var(--line)); }
+.panel.err { border-color: var(--accent-line); background: var(--accent-tint); }
+.panel-title { font-family: var(--font-display); font-weight: 600; font-size: var(--fs-title); letter-spacing: -0.005em; }
+.panel-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s-2) var(--s-4); margin-bottom: var(--s-3); }
+.panel-sub { font-size: var(--fs-caption); color: var(--text-muted); }
+.note { font-size: var(--fs-caption); color: var(--text-dim); margin-top: var(--s-3); line-height: 1.5; }
+.note.warn { color: var(--accent); margin: 0 0 var(--s-3); }
+.empty { color: var(--text-muted); padding: var(--s-2) 0; }
+.loading { color: var(--text-muted); padding: var(--s-8) 0; animation: pulse 1.2s ease-in-out infinite; }
+
+.page-head { padding-bottom: var(--s-2); }
+.page-title { font-size: var(--fs-h2); font-weight: 700; }
+.page-sub { margin-top: var(--s-1); font-size: var(--fs-caption); color: var(--text-dim); }
+
+/* ---------- data table ---------- */
+.tablewrap { overflow-x: auto; margin: 0 calc(var(--s-4) * -1); padding: 0 var(--s-4); }
+.data-table th {
+  text-align: left; white-space: nowrap; padding: var(--s-2) var(--s-2);
+  font-size: var(--fs-caption); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--text-muted); border-bottom: 1px solid var(--line-control);
+}
+.data-table td { padding: var(--s-3) var(--s-2); border-bottom: 1px solid var(--line); vertical-align: top; transition: background var(--t); }
+.data-table tbody tr:last-child td { border-bottom: 0; }
+.data-table tbody tr:hover td { background: var(--surface); }
+.data-table th.num, .data-table td.num { padding-left: var(--s-4); }
+.data-table th.num { text-align: right; }
+.data-table td.name { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-title); color: var(--text); }
+.data-table td.name div { line-height: 1.3; }
+.data-table td.sub { color: var(--text-muted); font-size: var(--fs-caption); line-height: 1.5; padding-top: 14px; }
+.data-table td.name { padding-top: var(--s-3); }
+.data-table td.pos { width: 40px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.data-table tr.p1 td.pos, .data-table tr.p1 td.num { color: var(--c-gold); font-weight: 700; }
+.data-table tr.p2 td.pos, .data-table tr.p2 td.num { color: var(--c-silver); font-weight: 700; }
+.data-table tr.p3 td.pos, .data-table tr.p3 td.num { color: var(--c-bronze); font-weight: 700; }
+.data-table td.crew div { line-height: 1.5; }
+.data-table td.crew b { font-weight: 600; color: var(--text); margin-right: var(--s-1); }
+
+/* ---------- badges ---------- */
+.badge {                         /* filled: series / session kind (raceweek .rw-badge) */
+  display: inline-block; padding: 2px var(--s-2); border-radius: var(--r-sm);
+  background: var(--b, var(--surface)); color: var(--bg);
+  font-size: var(--fs-caption); font-weight: 700; letter-spacing: 0.04em; line-height: 16px; white-space: nowrap; text-transform: uppercase;
+}
+.badge.ghost { background: transparent; border: 1px solid var(--line-control); color: var(--text-muted); font-weight: 500; }
+.tag {                           /* outlined: cup / race format */
+  display: inline-block; padding: 1px var(--s-2); border: 1px solid var(--t-c, var(--line-control)); border-radius: var(--r-sm);
+  color: var(--t-c, var(--text-muted)); font-family: var(--font-mono); font-size: var(--fs-caption); font-weight: 500; line-height: 16px; letter-spacing: 0.04em; white-space: nowrap; text-transform: uppercase;
+  vertical-align: middle;
+}
+.carno {
+  display: inline-block; min-width: 40px; padding: 2px var(--s-2); text-align: center;
+  background: var(--surface); border: 1px solid var(--line-control); border-radius: var(--r-sm);
+  color: var(--text); font-size: var(--fs-caption); font-weight: 600; font-variant-numeric: tabular-nums;
+}
+.dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--d, var(--accent)); flex: none; }
+.dot.live { background: var(--live); animation: pulse 1.2s ease-in-out infinite; }
+
+/* progress bar (flat) */
+.meter { height: 4px; background: var(--line); border-radius: var(--r-sm); overflow: hidden; }
+.meter > i { display: block; height: 100%; background: var(--accent); }
+
+@media (max-width: 640px) {
+  .site-header .wrap { padding-top: var(--s-6); }
+  .header-meta { align-items: flex-start; flex-direction: row; flex-wrap: wrap; align-items: center; }
+  .tablewrap { margin: 0 calc(var(--s-3) * -1); padding: 0 var(--s-3); }
+  .panel { padding: var(--s-3); }
+  .data-table th, .data-table td { padding-left: var(--s-1); padding-right: var(--s-1); }
+  .data-table th.num, .data-table td.num { padding-left: var(--s-2); }
+  .data-table td.name { font-size: var(--fs-body); }
+  .hide-sm { display: none; }
+}
+
+/* ==========================================================================
+   Pages: home, schedule, points guide, progression
+   ========================================================================== */
+
+/* ---------- home: "this week" band (raceweek pattern) ---------- */
+.week-band { background: var(--accent-band); border-bottom: 1px solid var(--line); }
+.week-band .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); padding-top: var(--s-4); padding-bottom: var(--s-4); }
+.week-label { display: flex; align-items: center; gap: var(--s-3); color: var(--accent); font-size: var(--fs-body); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.week-link { background: none; border: 0; padding: 0; color: var(--link); font-size: var(--fs-caption); }
+.week-link:hover { color: var(--link-hover); }
+
+.home-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-8); }
+.next-name { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); font-size: var(--fs-h2); font-weight: 700; line-height: 1.2; margin: 0 0 var(--s-1); }
+.next-meta { color: var(--text-muted); }
+.count { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); margin: var(--s-6) 0 var(--s-2); }
+.count-cell b {
+  display: block; font-family: var(--font-display); font-weight: 700; font-size: var(--fs-numeral);
+  line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--text);
+}
+.count-cell span { display: block; margin-top: var(--s-1); font-size: var(--fs-caption); color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.count-target { font-size: var(--fs-caption); color: var(--text-muted); }
+.count-target b { color: var(--text); font-weight: 500; }
+
+.upnext-title { margin-bottom: var(--s-2); }
+.upnext-foot { margin-top: var(--s-3); }
+.upnext li { display: flex; align-items: flex-start; gap: var(--s-3); padding: var(--s-3) 0; border-bottom: 1px solid var(--line-soft); }
+.upnext li:last-child { border-bottom: 0; }
+.upnext .badge { min-width: 96px; text-align: center; margin-top: 2px; }
+.upnext .u-name { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-title); line-height: 1.3; }
+.upnext .u-when { font-size: var(--fs-caption); color: var(--text-muted); }
+
+/* season rounds */
+.season-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s-2) var(--s-4); margin-bottom: var(--s-3); }
+.rounds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--s-2); margin-top: var(--s-4); }
+.rtile {
+  position: relative; text-align: left; background: var(--bg); color: var(--text);
+  border: 1px solid var(--line); border-left: 3px solid var(--c, var(--line-control)); border-radius: var(--r-md);
+  padding: var(--s-2) var(--s-3);
+  transition: border-color var(--t), background var(--t), color var(--t);
+}
+.rtile:hover { border-color: var(--border); border-left-color: var(--c, var(--border)); }
+.rtile .rn { display: block; font-size: var(--fs-caption); color: var(--text-muted); }
+.rtile .rt { display: block; font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-body); line-height: 1.3; margin-top: 2px; }
+.rtile.done { color: var(--text-muted); }
+.rtile.done .rt::after { content: " \2713"; color: var(--text-dim); }
+.rtile.now { background: var(--accent-tint); border-color: var(--accent-line); border-left-color: var(--c, var(--accent)); }
+.rtile.now .rn { color: var(--accent); font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4); margin-top: var(--s-3); font-size: var(--fs-caption); color: var(--text-muted); }
+.legend i { display: inline-block; width: 8px; height: 8px; border-radius: var(--r-sm); margin-right: var(--s-2); background: var(--c); vertical-align: baseline; }
+
+/* championship snapshot */
+.snap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s-4); }
+.board-row {
+  position: relative; display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: var(--s-3);
+  padding: var(--s-2) var(--s-3); margin-top: var(--s-1); border-radius: var(--r-sm); overflow: hidden; min-height: 40px;
+}
+.board-row .fill { position: absolute; left: 0; top: 0; bottom: 0; width: var(--w, 0); background: var(--accent-tint); }
+.board-row > :not(.fill) { position: relative; }
+.board-row .b-pos { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.board-row.p1 .b-pos { color: var(--c-gold); font-weight: 700; }
+.board-row.p2 .b-pos { color: var(--c-silver); font-weight: 700; }
+.board-row.p3 .b-pos { color: var(--c-bronze); font-weight: 700; }
+.board-row .b-name { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-title); line-height: 1.2; min-width: 0; }
+.board-row .b-name small { display: block; font-family: var(--font-mono); font-size: var(--fs-caption); font-weight: 400; color: var(--text-muted); }
+.board-row .b-pts { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ---------- schedule (accordion, raceweek F1 page pattern) ---------- */
+.round { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+.round + .round { margin-top: var(--s-2); }
+.round.is-next { border-color: var(--accent-line); border-left: 3px solid var(--accent); }
+.round-head {
+  width: 100%; display: flex; align-items: center; gap: var(--s-3); text-align: left;
+  background: transparent; border: 0; padding: var(--s-3) var(--s-4); color: var(--text);
+  transition: background var(--t);
+}
+.round-head:hover { background: var(--surface); }
+.round.is-next .round-head, .round.is-next .round-head:hover { background: var(--accent-tint); }
+.round-head .chev { color: var(--text-muted); flex: none; width: 12px; font-size: var(--fs-title); line-height: 1; }
+.round-head .chev::before { content: "\25B8"; }
+.round-head[aria-expanded="true"] .chev::before { content: "\25BE"; }
+.round-head .r-no { color: var(--text-muted); font-size: var(--fs-caption); flex: none; min-width: 32px; }
+.round-head .r-main { flex: 1; min-width: 0; }
+.round-head .r-name { font-family: var(--font-mono); font-weight: 600; font-size: var(--fs-title); line-height: 1.3; }
+.round-head .r-name .tag { margin-left: var(--s-2); }
+.round-head .r-sub { font-size: var(--fs-caption); color: var(--text-muted); }
+.round-head .r-side { display: flex; align-items: center; gap: var(--s-3); flex: none; text-align: right; }
+.round-head .r-date { font-size: var(--fs-caption); color: var(--text-muted); white-space: nowrap; }
+.round.is-done .r-name { color: var(--text-muted); }
+.status { font-size: var(--fs-caption); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+.status.soon { color: var(--accent); }
+.status.live { color: var(--live); display: inline-flex; align-items: center; gap: var(--s-2); }
+
+.round-body { background: var(--card-open); border-top: 1px solid var(--line); }
+.day { padding: var(--s-3) var(--s-4) var(--s-3) calc(var(--s-4) + 12px + var(--s-3)); }
+.day + .day { border-top: 1px solid var(--line-soft); }
+.day-head { margin-bottom: var(--s-1); }
+.srow { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-1) 0; }
+.srow .sname { flex: 1; min-width: 0; color: var(--text-muted); }
+.srow.race .sname { color: var(--text); font-weight: 600; }
+.srow .stime { color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; font-size: var(--fs-caption); }
+.srow.done .sname, .srow.done .stime { color: var(--text-dim); text-decoration: line-through; font-weight: 400; }
+.srow .tag { min-width: 80px; text-align: center; }
+
+/* ---------- points guide ---------- */
+.pg-intro { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-6); align-items: center; }
+.pg-intro p { flex: 1 1 320px; color: var(--text-muted); }
+.pg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s-4); }
+.pg-card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--c); border-radius: var(--r-md); padding: var(--s-4); }
+.pg-card h3 { font-size: var(--fs-title); font-weight: 600; }
+.pg-sub { font-size: var(--fs-caption); color: var(--text-muted); margin-top: var(--s-1); }
+.pg-chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: var(--s-3) 0; }
+.pg-chips .tag b { color: var(--text); font-weight: 600; text-transform: none; letter-spacing: 0; }
+.pg-colh, .pg-row { display: grid; grid-template-columns: 32px 1fr; gap: var(--s-3); align-items: center; }
+.pg-colh.multi, .pg-row.multi { grid-template-columns: 32px repeat(3, 1fr); }
+.pg-colh { padding-bottom: var(--s-1); font-size: var(--fs-caption); color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.pg-row { padding: var(--s-1) 0; }
+.pg-pos { font-size: var(--fs-caption); font-weight: 600; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.pg-row.p1 .pg-pos { color: var(--c-gold); } .pg-row.p2 .pg-pos { color: var(--c-silver); } .pg-row.p3 .pg-pos { color: var(--c-bronze); }
+.pg-bar { display: flex; align-items: center; gap: var(--s-2); }
+.pg-bar span { min-width: 32px; text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+.pg-bar .track { flex: 1; height: 8px; background: var(--line); border-radius: var(--r-sm); overflow: hidden; }
+.pg-bar .track i { display: block; height: 100%; background: var(--c); }
+.pg-note { margin-top: auto; padding-top: var(--s-3); font-size: var(--fs-caption); color: var(--text-muted); }
+.pg-rules li { position: relative; padding-left: var(--s-4); color: var(--text-muted); }
+.pg-rules li + li { margin-top: var(--s-2); }
+.pg-rules li::before { content: ""; position: absolute; left: 0; top: 9px; width: 4px; height: 4px; background: var(--text-dim); }
+
+/* ---------- progression chart ---------- */
+.pp-wrap { overflow-x: auto; }
+.pp-svg { width: 100%; min-width: 560px; height: auto; display: block; }
+.pp-svg text { font-family: var(--font-mono); font-size: 12px; fill: var(--text-dim); }
+.pp-svg text.lab { font-weight: 600; }
+.pp-svg .grid { stroke: var(--line); stroke-width: 1; }
+.pp-legend { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4); margin-top: var(--s-3); font-size: var(--fs-caption); color: var(--text-muted); }
+.pp-legend i { display: inline-block; width: 8px; height: 8px; border-radius: var(--r-sm); margin-right: var(--s-2); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 760px) {
+  .home-cols { grid-template-columns: 1fr; gap: var(--s-6); }
+  .count-cell b { font-size: 32px; }
+}
+@media (max-width: 640px) {
+  .round-head { padding: var(--s-3); gap: var(--s-2); }
+  .round-head .r-side { flex-direction: column; align-items: flex-end; gap: var(--s-1); }
+  .day { padding-left: var(--s-3); padding-right: var(--s-3); }
+  .srow { flex-wrap: wrap; row-gap: var(--s-1); }
+  .srow .dot { order: 0; }
+  .srow .sname { flex: 1 1 calc(100% - 24px); order: 1; }
+  .srow .tag { order: 2; min-width: 0; margin-left: var(--s-5); }
+  .srow .stime { order: 3; margin-left: auto; }
+  .week-band .wrap { flex-wrap: wrap; }
+}
+
+/* ==========================================================================
+   Retro variant: Press Start 2P for interface text, VT323 for reading text.
+   Original (non-enlarged) sizes. Loaded after the base design system.
+   ========================================================================== */
+:root {
+  --font-display: "Press Start 2P", ui-monospace, Menlo, Consolas, monospace;
+  --font-mono:    "VT323", ui-monospace, Menlo, Consolas, monospace;
+  --fs-caption: 16px; --fs-body: 20px; --fs-title: 22px;
+  --fs-pixel: 9px; --fs-pixel-sm: 8px; --fs-pixel-md: 11px;
+  --fs-h2: 16px; --fs-display: 20px; --fs-numeral: 32px;
+}
+body { font-synthesis: none; }
+h1, h2, h3 { font-weight: 400; line-height: 1.5; letter-spacing: 0; }
+.wordmark, .page-title, .next-name, .panel-title, .pg-card h3, .count-cell b,
+.btn, .seg .btn, .tab, .chip, .cls-chip, .badge, .tag, .carno, .week-label, .status, .pg-colh, .label, .data-table th {
+  font-family: var(--font-display); font-weight: 400; letter-spacing: 0;
+}
+.wordmark { font-size: var(--fs-display); line-height: 1.4; }
+.page-title, .next-name { font-size: var(--fs-h2); line-height: 1.5; }
+.panel-title, .pg-card h3 { font-size: var(--fs-pixel-md); line-height: 1.5; }
+.count-cell b { font-size: var(--fs-numeral); line-height: 1.2; }
+.btn, .seg .btn, .tab, .chip, .cls-chip, .week-label { font-size: var(--fs-pixel); line-height: 1.5; }
+.badge, .tag, .carno, .status, .pg-colh { font-size: var(--fs-pixel-sm); line-height: 16px; }
+.label, .data-table th { font-size: var(--fs-pixel-sm); line-height: 1.5; }
+.chip { padding: var(--s-3) var(--s-4); }
+.tab { padding: var(--s-2) var(--s-3); }
+.seg .btn, .btn-step { padding-top: 0; padding-bottom: 0; }
+.badge, .tag { padding-top: 4px; padding-bottom: 4px; }
+.carno { padding: 4px var(--s-2); }
+.brand-cap, .tz { letter-spacing: 0.04em; }
+.pp-svg text { font-size: 16px; }
+/* pixel-drawn tick for finished rounds (the font has no tick glyph) */
+.rtile.done .rt::after {
+  content: ""; display: inline-block; width: 14px; height: 12px; margin-left: 8px; vertical-align: -1px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 7 6' shape-rendering='crispEdges'%3E%3Cg fill='%23888888'%3E%3Crect x='6' y='0' width='1' height='1'/%3E%3Crect x='5' y='1' width='1' height='1'/%3E%3Crect x='6' y='1' width='1' height='1'/%3E%3Crect x='0' y='2' width='1' height='1'/%3E%3Crect x='4' y='2' width='1' height='1'/%3E%3Crect x='5' y='2' width='1' height='1'/%3E%3Crect x='0' y='3' width='2' height='1'/%3E%3Crect x='3' y='3' width='2' height='1'/%3E%3Crect x='1' y='4' width='3' height='1'/%3E%3Crect x='2' y='5' width='1' height='1'/%3E%3C/g%3E%3C/svg%3E") no-repeat center / contain;
+  image-rendering: pixelated;
+}
+@media (max-width: 760px) { .count-cell b { font-size: 24px; } }
+@media (max-width: 640px) { .wordmark { font-size: 16px; } .next-name { font-size: 12px; } }
+</style>
 </head>
 <body>
 <div id="app"></div>
+<script>
+/* ==========================================================================
+   Config + app state
+   Same structure and behaviour as the original; colours now point at the
+   design tokens in css/tokens.css and labels are sentence case (the CSS adds
+   capitals where the design calls for them).
+   ========================================================================== */
 
-<!-- Classic scripts, loaded in order (they share globals, so no build step is needed) -->
-<script src="js/config.js"></script>
-<script src="js/helpers.js"></script>
-<script src="js/data.js"></script>
-<script src="js/time.js"></script>
-<script src="js/points-data.js"></script>
-<script src="js/ui.js"></script>
-<script src="js/views/home.js"></script>
-<script src="js/views/standings.js"></script>
-<script src="js/views/results.js"></script>
-<script src="js/views/schedule.js"></script>
-<script src="js/app.js"></script>
+const CUPS = [
+  { key: "overall",   label: "Overall",       accent: "var(--text)" },
+  { key: "sprint",    label: "Sprint Cup",    accent: "var(--c-sprint)" },
+  { key: "endurance", label: "Endurance Cup", accent: "var(--c-endurance)" },
+];
+
+// Class colours drive the left edge of each table and the class filter chips.
+const CLASSES = [
+  { key: "overall",     label: "Overall",         accent: "var(--text)" },
+  { key: "gold",        label: "Gold",            accent: "var(--c-gold)" },
+  { key: "silver",      label: "Silver",          accent: "var(--c-silver)" },
+  { key: "bronze",      label: "Bronze",          accent: "var(--c-bronze)" },
+  { key: "hypercar",    label: "Hypercar",        accent: "var(--c-hypercar)" },
+  { key: "lmgt3",       label: "LMGT3",           accent: "var(--c-lmgt3)" },
+  { key: "independent", label: "Independent Cup", accent: "var(--c-independent)" },
+];
+
+const CLASS_STYLE = {   // race-result class names -> colour
+  "all":         { accent: "var(--text)" },
+  "pro cup":     { accent: "var(--text)" },
+  "gold cup":    { accent: "var(--c-gold)" },
+  "silver cup":  { accent: "var(--c-silver)" },
+  "bronze cup":  { accent: "var(--c-bronze)" },
+  "pro-am cup":  { accent: "var(--c-pro-am)" },
+  "hypercar":    { accent: "var(--c-hypercar)" },
+  "lmgt3":       { accent: "var(--c-lmgt3)" },
+  "pro":         { accent: "var(--text)" },
+  "gold":        { accent: "var(--c-gold)" },
+  "silver":      { accent: "var(--c-silver)" },
+  "bronze":      { accent: "var(--c-bronze)" },
+  "pro-am":      { accent: "var(--c-pro-am)" },
+  "am":          { accent: "var(--c-lmgt3)" },
+  "independent": { accent: "var(--c-independent)" },
+};
+function classStyle(label) { return CLASS_STYLE[(label || "").toLowerCase()] || CLASS_STYLE["all"]; }
+
+const ENTITIES = [
+  { key: "drivers", label: "Drivers" },
+  { key: "teams",   label: "Teams" },
+];
+
+// Series the site can show. GTWC keeps its files in data/; the others use their own folder.
+const SERIES = [
+  { id: "gtwc", label: "GTWC Europe", dir: "data", cups: ["overall", "sprint", "endurance"], classes: ["overall", "gold", "silver", "bronze"],
+    tags: { sprint: "Sprint Cup", endurance: "Endurance Cup" } },
+  { id: "f1",   label: "Formula 1",   dir: "data/f1", cups: ["overall"], classes: ["overall"],
+    tags: { sprint: "Sprint weekend", endurance: "Grand Prix" } },
+  { id: "wec",  label: "WEC",         dir: "data/wec", cups: ["overall"], classes: ["hypercar", "lmgt3"], resultClass: "Hypercar",
+    tags: { sprint: "Sprint", endurance: "Race" } },
+];
+function seriesInfo(id) { return SERIES.find((x) => x.id === id) || SERIES[0]; }
+function curSeries() { return seriesInfo(state.series); }
+// Only the championships and classes the current series has.
+function cupList() { return CUPS.filter((c) => curSeries().cups.includes(c.key)); }
+function classList() { return CLASSES.filter((c) => curSeries().classes.includes(c.key)); }
+function tagLabel(key) { return curSeries().tags[key] || key; }
+// Standings entities. In the WEC the Hypercar "teams" table is the manufacturers' championship.
+function entList() {
+  return ENTITIES.map((e) => (e.key === "teams" && (state.series === "wec" && state.cls === "hypercar"))
+    ? { key: "teams", label: "Manufacturers" } : e);
+}
+function isGtwc() { return state.series === "gtwc"; }
+function initialSeries() {
+  try {
+    const q = new URLSearchParams(location.search).get("series");
+    if (q && SERIES.some((x) => x.id === q)) return q;
+    const v = localStorage.getItem("gtwcSeries");
+    if (v && SERIES.some((x) => x.id === v)) return v;
+  } catch (e) { /* storage blocked: use the default */ }
+  return "gtwc";
+}
+
+const state = {
+  series: initialSeries(), noData: false,
+  page: "home",               // "home" | "standings" | "results" | "schedule" | "points" | "progress"
+  cup: "overall", cls: seriesInfo(initialSeries()).classes[0], entity: "drivers",
+  roundId: null, sessionId: null, resultClass: seriesInfo(initialSeries()).resultClass || "ALL",
+  stdQuery: "", resQuery: "",
+  standings: null, results: null, history: null, error: null,
+  teamByDriver: {}, entryMaps: null, schedule: null, schedOpen: new Set(), timer: null,
+};
+
+/* Names, sessions, classes, DOM helper. Logic carried over unchanged from the original index.html. */
+/* ---------- helpers for names, sessions, classes ---------- */
+// Car numbers and line-ups from the race results.
+//  driverCar: driver -> {car, team, cls} from their most recent result.
+//  teamCars:  team  -> [{car, cls, drivers:[...]}] using the latest line-up each car number had for that team.
+function buildEntryMaps(results) {
+  const driverCar = {}, teams = {};
+  const rounds = (results.rounds || []).slice().sort((a, b) => (a.round || 0) - (b.round || 0));
+  rounds.forEach((round) => (round.sessions || []).forEach((sess) => (sess.rows || []).forEach((row) => {
+    const names = (row.drivers || "").split(/,\s*/).map((x) => x.trim()).filter(Boolean);
+    if (!names.length || !row.car) return;
+    names.forEach((n) => { driverCar[normName(n)] = { car: String(row.car), team: row.team || "", cls: row.cls || "" }; });
+    if (row.team) {
+      const tk = normName(row.team);
+      (teams[tk] = teams[tk] || {})[String(row.car)] = { car: String(row.car), cls: row.cls || "", drivers: names };
+    }
+  })));
+  const teamCars = {};
+  Object.keys(teams).forEach((k) => {
+    teamCars[k] = Object.values(teams[k]).sort((a, b) => (parseInt(a.car, 10) || 0) - (parseInt(b.car, 10) || 0));
+  });
+  return { driverCar, teamCars };
+}
+function classMatches(entryCls) {          // is this car in the class table being shown?
+  if (state.cls === "overall" || !entryCls) return true;
+  return normName(entryCls).startsWith(state.cls);
+}
+// Cars for a standings team row. Exact name first, then a name that contains the other (WEC manufacturers).
+function carsForTeam(name) {
+  const maps = state.entryMaps || { teamCars: {} }, k = normName(name);
+  let cars = maps.teamCars[k];
+  if (!cars && k.length >= 3) {
+    cars = [];
+    Object.keys(maps.teamCars).forEach((tk) => {
+      const a = " " + tk + " ", b = " " + k + " ";
+      if (a.includes(b) || b.includes(a)) cars = cars.concat(maps.teamCars[tk]);
+    });
+    const seen = {};      // the same car can sit under two spellings of a team name: keep it once
+    cars = cars.filter((c) => (seen[c.car] ? false : (seen[c.car] = true)));
+  }
+  return (cars || []).filter((c) => classMatches(c.cls));
+}
+function normName(s) {
+  return (s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase()
+    .replace(/\u00f8/g, "o").replace(/\u00e6/g, "ae").replace(/\u0153/g, "oe")
+    .replace(/\u00df/g, "ss").replace(/\u0142/g, "l").replace(/\u0111/g, "d")
+    .replace(/[^a-z0-9]+/g, " ").trim();
+}
+// Every word typed must appear somewhere in the searched fields (ignores capitals and accents).
+function matchesQuery(query, ...fields) {
+  const words = normName(query).split(" ").filter(Boolean);
+  if (!words.length) return true;
+  const hay = normName(fields.filter(Boolean).join(" "));
+  return words.every((w) => hay.includes(w));
+}
+// Driver -> entry name from their most recent race result. Race results are the
+// only place team names exist for drivers (the official driver standings omit them).
+function buildTeamMap(results) {
+  const map = {};
+  const rounds = (results.rounds || []).slice().sort((a, b) => (a.round || 0) - (b.round || 0));
+  rounds.forEach((round) => (round.sessions || []).forEach((sess) => (sess.rows || []).forEach((row) => {
+    if (!row.team) return;
+    (row.drivers || "").split(/,\s*/).forEach((d) => { const k = normName(d); if (k) map[k] = row.team; });
+  })));
+  return map;
+}
+// Interim snapshots of long races, e.g. "Main Race after 23h 30".
+function isInterim(s) {
+  const re = /after[\s-]+\d+\s*[h:\s-]\s*30/i;
+  return re.test(s.name || "") || re.test(s.id || "");
+}
+// Points checkpoints at the 24 Hours of Spa, e.g. "Main Race after 6 hours".
+function isCheckpoint(s) {
+  return !isInterim(s) && /after[\s-]+\d+\s*(hours?|hrs?|h)\b/i.test((s.name || "") + " " + (s.id || ""));
+}
+// Opening choice for a round: its first race, preferring one called "Main Race".
+function defaultSessionId(round) {
+  const sessions = round.sessions || [];
+  const finals = sessions.filter((s) => !isInterim(s) && !isCheckpoint(s));
+  const main = finals.find((s) => /^main race$/i.test((s.name || "").trim()) || s.id === "main-race");
+  const pick = main || finals[0] || sessions[0];
+  return pick ? pick.id : null;
+}
+const CLASS_ORDER = ["pro cup", "pro-am cup", "gold cup", "silver cup", "bronze cup", "pro", "gold", "silver", "bronze", "pro-am", "am"];
+function sortClasses(list) {
+  const rank = (c) => { const i = CLASS_ORDER.indexOf(c.toLowerCase()); return i === -1 ? 99 : i; };
+  return list.slice().sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+}
+
+/* ---------- tiny DOM helper ---------- */
+function el(tag, attrs = {}, children = []) {
+  const node = document.createElement(tag);
+  Object.entries(attrs).forEach(([k, v]) => {
+    if (k === "class") node.className = v;
+    else if (k === "text") node.textContent = v;
+    else if (k === "style") node.setAttribute("style", v);
+    else if (k.startsWith("on")) node.addEventListener(k.slice(2), v);
+    else node.setAttribute(k, v);
+  });
+  (Array.isArray(children) ? children : [children]).forEach((c) => {
+    if (c) node.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+  });
+  return node;
+}
+function fmtPoints(n) { return Number.isInteger(n) ? String(n) : n.toFixed(1); }
+
+/* Data loading and series switching. Logic carried over unchanged from the original index.html. */
+/* ---------- data loading ---------- */
+async function loadData() {
+  const mine = state.series;
+  const dir = seriesInfo(mine).dir;
+  const stale = () => state.series !== mine;      // the visitor switched series while this was loading
+  try {
+    const [s, r] = await Promise.all([
+      fetch(dir + "/standings.json", { cache: "no-cache" }).then((x) => { if (!x.ok) throw new Error("standings.json " + x.status); return x.json(); }),
+      fetch(dir + "/results.json", { cache: "no-cache" }).then((x) => { if (!x.ok) throw new Error("results.json " + x.status); return x.json(); }),
+    ]);
+    if (stale()) return;
+    state.standings = s;
+    state.results = r;
+    // History and schedule are bonuses: the rest of the site still works without them.
+    try {
+      const hs = await fetch(dir + "/history.json", { cache: "no-cache" });
+      if (hs.ok) state.history = await hs.json();
+    } catch (e) { state.history = null; }
+    try {
+      const sc = await fetch(dir + "/schedule.json", { cache: "no-cache" });
+      if (sc.ok) state.schedule = await sc.json();
+    } catch (e) { state.schedule = null; }
+    if (stale()) return;
+    state.teamByDriver = buildTeamMap(r);
+    state.entryMaps = buildEntryMaps(r);
+    const rounds = (r.rounds || []);
+    if (rounds.length) {
+      const last = rounds[rounds.length - 1];
+      state.roundId = last.id;                           // latest round by default
+      state.sessionId = defaultSessionId(last);          // its first race
+    }
+  } catch (err) {
+    if (stale()) return;
+    if (mine === "gtwc") state.error = err.message;
+    else state.noData = true;                            // other series: no data files yet
+  }
+  render();
+}
+
+function setSeries(id) {
+  if (id === state.series) return;
+  state.series = id;
+  try { localStorage.setItem("gtwcSeries", id); } catch (e) { /* ignore */ }
+  Object.assign(state, {
+    standings: null, results: null, schedule: null, history: null, error: null, noData: false,
+    roundId: null, sessionId: null, teamByDriver: {}, entryMaps: null, schedOpen: new Set(),
+    cup: "overall", cls: seriesInfo(id).classes[0], entity: "drivers", stdQuery: "", resQuery: "", resultClass: seriesInfo(id).resultClass || "ALL",
+  });
+  render();          // shows "Loading..." straight away; the page the visitor is on stays the same
+  loadData();
+}
+
+/* Time (everything in IST) and schedule logic. Carried over unchanged except cupTag, which moved to ui.js. */
+/* ---------- time helpers (everything is shown in IST) ---------- */
+const IST = "Asia/Kolkata";
+// ?now=2026-10-10T12:00:00Z fakes the clock, handy for testing the countdown.
+const FAKE_NOW = (() => { const v = new URLSearchParams(location.search).get("now"); const t = v ? Date.parse(v) : NaN; return isNaN(t) ? null : t; })();
+const LOADED_AT = Date.now();
+function nowMs() { return FAKE_NOW === null ? Date.now() : FAKE_NOW + (Date.now() - LOADED_AT); }
+function istParts(ms, opts) {
+  const o = {};
+  new Intl.DateTimeFormat("en-GB", Object.assign({ timeZone: IST }, opts)).formatToParts(new Date(ms)).forEach((x) => { o[x.type] = x.value; });
+  return o;
+}
+function istDateKey(ms) { const p = istParts(ms, { year: "numeric", month: "2-digit", day: "2-digit" }); return `${p.year}-${p.month}-${p.day}`; }
+function istTime(ms) { const p = istParts(ms, { hour: "2-digit", minute: "2-digit", hour12: false }); return `${p.hour}:${p.minute}`; }
+function istDayLabel(ms) {
+  const p = istParts(ms, { weekday: "short", day: "2-digit", month: "short" });
+  return `${p.weekday} ${p.day} ${p.month}`;
+}
+function dayDiff(aMs, bMs) { return Math.round((Date.parse(istDateKey(aMs) + "T00:00:00Z") - Date.parse(istDateKey(bMs) + "T00:00:00Z")) / 864e5); }
+function rangeLabel(r) {
+  const a = Date.parse(r.start + "T12:00:00Z"), b = Date.parse(r.end + "T12:00:00Z");
+  const pa = istParts(a, { day: "numeric", month: "short" }), pb = istParts(b, { day: "numeric", month: "short" });
+  return pa.month === pb.month ? `${pa.day}\u2013${pb.day} ${pb.month}` : `${pa.day} ${pa.month} \u2013 ${pb.day} ${pb.month}`;
+}
+
+/* ---------- schedule logic ---------- */
+function sessionMs(x) { return Date.parse(x.utc); }
+function roundStartMs(r) {
+  const ss = r.sessions || [];
+  return ss.length ? Math.min(...ss.map(sessionMs)) : Date.parse(r.start + "T00:00:00Z");
+}
+function roundEndMs(r) {
+  const ss = r.sessions || [];
+  if (!ss.length) return Date.parse(r.end + "T23:59:59Z");
+  const last = Math.max(...ss.map((x) => (x.end_utc ? Date.parse(x.end_utc) : sessionMs(x))));
+  return last + (/24\s*(hours?|h)\b/i.test(r.name || "") ? 26 : 4) * 36e5;   // allow for the race itself
+}
+function roundStatus(r, now) {
+  if (now > roundEndMs(r)) return "done";
+  if (now >= roundStartMs(r)) return "live";
+  return "upcoming";
+}
+// Sprint rounds have two races (Race 1 and Race 2); Endurance rounds have a single Main Race.
+function roundCup(r) {
+  if (state.series === "f1") {                           // a Sprint session makes it a sprint weekend
+    if (!(r.sessions || []).length) return "";
+    return (r.sessions || []).some((x) => /^sprint$/i.test(x.name || "")) ? "sprint" : "endurance";
+  }
+  const races = (r.sessions || []).filter((x) => x.kind === "race").length;
+  if (races >= 2) return "sprint";
+  if (races === 1) return "endurance";
+  return "";
+}
+function scheduleRounds() { return ((state.schedule || {}).rounds || []).slice().sort((a, b) => a.round - b.round); }
+function nextRound(now) { return scheduleRounds().find((r) => roundStatus(r, now) !== "done") || null; }
+// What the big countdown counts down to: the next race session, else the next session, else the first day.
+function countdownTarget(r, now) {
+  const upcoming = (r.sessions || []).filter((x) => sessionMs(x) > now).sort((a, b) => sessionMs(a) - sessionMs(b));
+  const race = upcoming.find((x) => x.kind === "race");
+  if (race) return { ms: sessionMs(race), label: race.name };
+  if (upcoming.length) return { ms: sessionMs(upcoming[0]), label: upcoming[0].name };
+  if (now < roundStartMs(r)) return { ms: roundStartMs(r), label: "Weekend start" };
+  return null;
+}
+function splitCountdown(ms) {
+  const t = Math.max(0, Math.floor(ms / 1000));
+  return { d: Math.floor(t / 86400), h: Math.floor((t % 86400) / 3600), m: Math.floor((t % 3600) / 60), s: t % 60 };
+}
+function pad2(n) { return String(n).padStart(2, "0"); }
+
+/* Points tables for the points guide. */
+const TEN = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const POINT_TABLES = [
+  { id: "sprint", title: "Sprint Cup", sub: "1-hour races, two per round. Points count for every race.", c: "var(--c-sprint)",
+    pts: [16.5, 12, 9.5, 7.5, 6, 4, 3, 2, 1, 0.5], pole: "1 point per pole", max: 2 * (16.5 + 1), maxNote: "both races + 2 poles",
+    note: "Used at the Sprint rounds." },
+  { id: "e3", title: "Endurance, 3 hours", sub: "One race per round, 3-hour distance", c: "var(--c-endurance)",
+    pts: [25, 18, 15, 12, 10, 8, 6, 4, 2, 1], pole: "1 point for pole", max: 26, maxNote: "win + pole",
+    note: "Monza, Nürburgring and Portimão." },
+  { id: "e6", title: "Endurance, 6 hours", sub: "One race per round, 6-hour distance", c: "var(--c-endurance)",
+    pts: [33, 24, 19, 15, 12, 9, 6, 4, 2, 1], pole: "1 point for pole", max: 34, maxNote: "win + pole",
+    note: "Paul Ricard." },
+  { id: "spa", title: "24 Hours of Spa", sub: "Points at 6 hours, 12 hours and the finish", c: "var(--c-long)",
+    cols: ["6 hrs", "12 hrs", "Finish"], multi: [[12, 9, 7, 6, 5, 4, 3, 2, 1, 0], [12, 9, 7, 6, 5, 4, 3, 2, 1, 0], [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]],
+    pole: "Super Pole: 3, 2 and 1 points", max: 12 + 12 + 25 + 3, maxNote: "all three + Super Pole",
+    note: "The biggest points haul of the season." },
+];
+
+const F1_TABLES = [
+  { id: "gp", title: "Grand Prix", sub: "The Sunday race. Top 10 score.", c: "var(--c-endurance)",
+    pts: [25, 18, 15, 12, 10, 8, 6, 4, 2, 1], max: 25, maxNote: "a win", note: "Every round." },
+  { id: "sprint", title: "Sprint", sub: "The short Saturday race. Top 8 score.", c: "var(--c-sprint)",
+    pts: [8, 7, 6, 5, 4, 3, 2, 1], max: 8, maxNote: "a win", note: "Sprint weekends only." },
+];
+const WEC_TABLES = [
+  { id: "r6", title: "6-hour races", sub: "The usual race length. Top 10 score.", c: "var(--c-endurance)",
+    pts: [25, 18, 15, 12, 10, 8, 6, 4, 2, 1], pole: "1 point for pole", max: 26, maxNote: "win + pole",
+    note: "Imola, Spa, São Paulo, Lone Star Le Mans, Fuji, Barcelona and Monza." },
+  { id: "lm", title: "24 Hours of Le Mans", sub: "Double-length race, the biggest points haul", c: "var(--c-long)",
+    pts: [50, 36, 30, 24, 20, 16, 12, 8, 4, 2], pole: "1 point for pole", max: 51, maxNote: "win + pole",
+    note: "Worth twice as much as a normal round." },
+];
+const POINT_GUIDES = {
+  gtwc: { tables: POINT_TABLES },
+  wec: { tables: WEC_TABLES,
+    intro: "How the championship points are awarded. Hypercar and LMGT3 are scored separately, each with the same scale for its own class positions.",
+    legend: [["var(--c-endurance)", "6 hours"], ["var(--c-long)", "24 hours"], ["var(--c-hypercar)", "Hypercar"], ["var(--c-lmgt3)", "LMGT3"]],
+    rules: ["Points are awarded for class positions, and the winner of each class gets the top score.",
+      "One bonus point goes to the pole position of each class.",
+      "Hypercar manufacturers score with the two best-placed cars of each brand in a race.",
+      "LMGT3 has its own teams' and drivers' trophies. Hypercar has a drivers' title and a manufacturers' title.",
+      "Scales shown are the ones used in the 2026 standings. Longer races, such as an 8-hour round, may use a different scale. Check the official regulations for the final word."] },
+  f1: { tables: F1_TABLES,
+    intro: "How the championship points are awarded. Each driver scores for the drivers' title, and a constructor adds up the points of both its cars.",
+    legend: [["var(--c-endurance)", "Grand Prix"], ["var(--c-sprint)", "Sprint"]],
+    rules: ["Sprint points are only awarded on sprint weekends, on top of the Grand Prix points.",
+      "There is no point for pole position or for the fastest lap.",
+      "The drivers' champion is the driver with the most points; constructors are ranked on the combined points of their cars.",
+      "Source: published Formula 1 scoring rules. Check the official regulations for the final word."] },
+};
+function fmtPts(v) { return Number.isInteger(v) ? String(v) : v.toFixed(1); }
+
+/* ==========================================================================
+   Shared UI builders (all markup uses classes from css/components.css)
+   ========================================================================== */
+
+/* Outlined tag for a round's format: Sprint / Endurance, or "6 hours" in the WEC. */
+function cupTag(r) {
+  const c = roundCup(r);
+  if (!c) return null;
+  const cup = CUPS.find((x) => x.key === c);
+  let label = tagLabel(c);
+  if (state.series === "wec") {
+    const m = /(\d+)\s*(hours?|h)\b/i.exec(r.name || ""), k = /(\d+)\s*km/i.exec(r.name || "");
+    label = m ? m[1] + " hours" : (k ? k[1] + " km" : "Race");
+  }
+  return el("span", { class: "tag", style: `--t-c:${cup.accent}`, text: label });
+}
+
+/* Filled badge for a session kind. */
+const KIND = {
+  race:       { label: "Race",       color: "var(--c-race)" },
+  qualifying: { label: "Qualifying", color: "var(--c-quali)" },
+  practice:   { label: "Practice",   color: "var(--c-practice)" },
+};
+function kindBadge(kind) {
+  const k = KIND[kind];
+  return k ? el("span", { class: "badge", style: `--b:${k.color}`, text: k.label })
+           : el("span", { class: "badge ghost", text: kind ? kind : "Session" });
+}
+
+/* ---- fields: a caption above each control ---- */
+function labelled(label, control, cls) {
+  return el("div", { class: cls || "field" }, [el("span", { class: "label", text: label }), control]);
+}
+function selectField(label, items, value, edge, onChange) {
+  const sel = el("select", { class: "select", "aria-label": label, style: `--edge:${edge}`, onchange: (e) => onChange(e.target.value) });
+  items.forEach((it) => {
+    const o = el("option", { value: it.key, text: it.label });
+    if (it.key === value) o.selected = true;
+    sel.appendChild(o);
+  });
+  return labelled(label, sel, "field sel");
+}
+function toggleField(label, items, value, onPick) {
+  const seg = el("div", { class: "seg", role: "group", "aria-label": label });
+  items.forEach((it) => seg.appendChild(el("button", {
+    class: "btn", type: "button", "aria-pressed": String(it.key === value), text: it.label, onclick: () => onPick(it.key),
+  })));
+  return labelled(label, seg);
+}
+function searchField(value, placeholder, onInput) {
+  const inp = el("input", { type: "search", class: "input", placeholder, value: value || "", autocomplete: "off", spellcheck: "false", "aria-label": placeholder });
+  inp.addEventListener("input", () => onInput(inp.value));
+  return labelled("Search", inp, "field grow");
+}
+function classChips(items, active, onPick) {
+  const row = el("div", { class: "cls-chips", role: "group", "aria-label": "Class" });
+  items.forEach((it) => row.appendChild(el("button", {
+    class: "cls-chip", type: "button", style: `--c:${it.accent}`, "aria-pressed": String(it.key === active), text: it.label, onclick: () => onPick(it.key),
+  })));
+  return labelled("Class", row);
+}
+
+/* ---- panel (flat card) with an optional coloured left edge ---- */
+function panel(title, sub, edge) {
+  const box = el("div", { class: "panel" + (edge ? " edge" : ""), style: edge ? `--edge:${edge}` : "" });
+  if (title) {
+    box.appendChild(el("div", { class: "panel-head" }, [
+      el("h2", { class: "panel-title", text: title }),
+      sub ? el("span", { class: "panel-sub", text: sub }) : null,
+    ]));
+  }
+  return box;
+}
+function emptyPanel(text) { return el("div", { class: "panel" }, [el("div", { class: "empty", text })]); }
+function note(text, warn) { return el("div", { class: "note" + (warn ? " warn" : ""), text }); }
+
+/* ---- data table: heads = [{text, num}], rows = arrays of <td> nodes ---- */
+function dataTable(heads, rows) {
+  const tr = el("tr", {}, heads.filter(Boolean).map((h) => el("th", { class: ((h.num ? "num " : "") + (h.hide ? "hide-sm" : "")).trim(), text: h.text, title: h.title || "" })));
+  const body = el("tbody");
+  rows.forEach((r) => body.appendChild(r));
+  return el("div", { class: "tablewrap" }, [el("table", { class: "data-table" }, [el("thead", {}, [tr]), body])]);
+}
+function pageControls(nodes) { return el("div", { class: "controls" }, nodes); }
+
+/* ==========================================================================
+   Home
+   One layout replaces the old "arcade" and "paddock" styles:
+   next-race band -> countdown + sessions up next -> season rounds -> top of the standings
+   ========================================================================== */
+
+function shortRound(r) { return (r.name || "").replace(/^CrowdStrike 24 Hours of /i, "24H ").replace(/^Circuit (?!de )/i, ""); }
+
+function homeFacts() {
+  const now = nowMs();
+  const rounds = scheduleRounds();
+  const nxt = nextRound(now);
+  const tables = (state.standings || {}).tables || {};
+  const all = (((tables.overall || {})[curSeries().classes[0]] || {}));
+  return { now, rounds, nxt, doneCount: rounds.filter((r) => roundStatus(r, now) === "done").length,
+    target: nxt ? countdownTarget(nxt, now) : null, drivers: (all.drivers || []).slice(0, 5), teams: (all.teams || []).slice(0, 5) };
+}
+
+function cupColor(r) {
+  const c = roundCup(r);
+  return c === "sprint" ? "var(--c-sprint)" : (c === "endurance" ? "var(--c-endurance)" : "");
+}
+
+function renderHome() {
+  const f = homeFacts();
+  const root = el("div", { class: "bleed" });
+  const isLive = !!(f.nxt && roundStatus(f.nxt, f.now) === "live");
+
+  /* ---- band: the one place the accent fills a whole row ---- */
+  root.appendChild(el("div", { class: "week-band" }, [el("div", { class: "wrap" }, [
+    el("div", { class: "week-label" }, [
+      el("span", { class: "dot" + (isLive ? " live" : "") }),
+      isLive ? "Race weekend live" : (f.nxt ? "Next race" : (f.rounds.length ? "Season complete" : "Schedule")),
+    ]),
+    el("span", { class: "panel-sub", text: f.nxt ? `Round ${f.nxt.round} of ${f.rounds.length}` : (f.rounds.length ? `${f.rounds.length} rounds finished` : "") }),
+  ])]));
+
+  const main = el("div", { class: "wrap page" });
+  root.appendChild(main);
+
+  if (!f.rounds.length) {
+    main.appendChild(emptyPanel("Schedule not loaded yet. It appears after the next scheduled update."));
+  } else {
+    /* ---- countdown + sessions up next ---- */
+    const cols = el("div", { class: "home-cols" });
+    const left = el("div");
+    if (!f.nxt) {
+      left.appendChild(el("h2", { class: "next-name", text: "See you next season" }));
+      left.appendChild(el("p", { class: "next-meta", text: "Every round of the season has finished." }));
+    } else {
+      left.appendChild(el("h2", { class: "next-name" }, [f.nxt.name, cupTag(f.nxt)]));
+      left.appendChild(el("p", { class: "next-meta", text: `${f.nxt.country || ""}${f.nxt.country ? ", " : ""}${rangeLabel(f.nxt)}` }));
+      if (f.target) {
+        const cells = {};
+        const row = el("div", { class: "count", role: "timer", "aria-label": "Time until " + f.target.label });
+        [["d", "days"], ["h", "hours"], ["m", "min"], ["s", "sec"]].forEach(([k, lab]) => {
+          const b = el("b", { text: "00" }); cells[k] = b;
+          row.appendChild(el("div", { class: "count-cell" }, [b, el("span", { text: lab })]));
+        });
+        left.appendChild(row);
+        left.appendChild(el("p", { class: "count-target" }, ["Until ", el("b", { text: f.target.label }), ` on ${istDayLabel(f.target.ms)} at ${istTime(f.target.ms)} IST`]));
+        const tick = () => {
+          const c = splitCountdown(f.target.ms - nowMs());
+          cells.d.textContent = pad2(c.d); cells.h.textContent = pad2(c.h); cells.m.textContent = pad2(c.m); cells.s.textContent = pad2(c.s);
+        };
+        tick(); state.timer = setInterval(tick, 1000);
+      }
+    }
+    cols.appendChild(left);
+
+    const right = el("div");
+    right.appendChild(el("div", { class: "label upnext-title", text: "Sessions up next (IST)" }));
+    const up = f.nxt ? (f.nxt.sessions || []).filter((x) => sessionMs(x) > f.now).sort((a, b) => sessionMs(a) - sessionMs(b)).slice(0, 4) : [];
+    if (up.length) {
+      const list = el("ul", { class: "upnext" });
+      up.forEach((x) => list.appendChild(el("li", {}, [
+        kindBadge(x.kind),
+        el("div", {}, [el("div", { class: "u-name", text: x.name }), el("div", { class: "u-when", text: `${istDayLabel(sessionMs(x))}, ${istTime(sessionMs(x))}` })]),
+      ])));
+      right.appendChild(list);
+    } else {
+      right.appendChild(el("div", { class: "empty", text: f.nxt ? "No more sessions left this weekend." : "Nothing scheduled." }));
+    }
+    if (f.nxt) {
+      right.appendChild(el("div", { class: "upnext-foot" }, [el("button", { class: "week-link", type: "button", text: "Full schedule", onclick: () => openSchedule(f.nxt.round) })]));
+    }
+    cols.appendChild(right);
+    main.appendChild(cols);
+
+    /* ---- season: one tile per round ---- */
+    const season = panel("Season", `${f.doneCount} of ${f.rounds.length} rounds done`);
+    season.appendChild(el("div", { class: "meter", "aria-hidden": "true" }, [el("i", { style: `width:${Math.round((f.doneCount / f.rounds.length) * 100)}%` })]));
+    const grid = el("div", { class: "rounds-grid" });
+    f.rounds.forEach((r) => {
+      const st = roundStatus(r, f.now);
+      const cls = st === "done" ? "done" : (f.nxt && f.nxt.round === r.round ? "now" : "");
+      const col = cupColor(r);
+      grid.appendChild(el("button", { class: ("rtile " + cls).trim(), type: "button", style: col ? `--c:${col}` : "", onclick: () => openSchedule(r.round) }, [
+        el("span", { class: "rn", text: `Round ${r.round}` }),
+        el("span", { class: "rt", text: shortRound(r) }),
+      ]));
+    });
+    season.appendChild(grid);
+    season.appendChild(el("div", { class: "legend" }, [
+      el("span", {}, [el("i", { style: "--c:var(--c-sprint)" }), tagLabel("sprint")]),
+      el("span", {}, [el("i", { style: "--c:var(--c-endurance)" }), tagLabel("endurance")]),
+      el("span", { text: "A tick marks a finished round." }),
+    ]));
+    main.appendChild(season);
+  }
+
+  /* ---- championship snapshot ---- */
+  const clsInfo = CLASSES.find((c) => c.key === curSeries().classes[0]);
+  const teamsLabel = (state.series === "wec" && curSeries().classes[0] === "hypercar") ? "Manufacturers" : "Teams";
+  const board = (title, rows, withTeam) => {
+    const p = panel(title, clsInfo ? clsInfo.label : "");
+    const lead = rows.length ? (rows[0].total || 1) : 1;
+    rows.forEach((d, i) => {
+      const team = withTeam ? (state.teamByDriver[normName(d.name)] || "") : "";
+      p.appendChild(el("div", { class: "board-row p" + (i + 1) }, [
+        el("div", { class: "fill", style: `width:${Math.max(4, Math.round(((d.total || 0) / lead) * 100))}%` }),
+        el("div", { class: "b-pos", text: String(i + 1) }),
+        el("div", { class: "b-name" }, [d.name, team ? el("small", { text: team }) : null]),
+        el("div", { class: "b-pts", text: fmtPoints(d.total || 0) }),
+      ]));
+    });
+    return p;
+  };
+  if (f.drivers.length || f.teams.length) {
+    const snap = el("div", { class: "snap-grid" });
+    if (f.drivers.length) snap.appendChild(board("Drivers", f.drivers, true));
+    if (f.teams.length) snap.appendChild(board(teamsLabel, f.teams, false));
+    main.appendChild(snap);
+    main.appendChild(el("div", {}, [el("button", { class: "week-link", type: "button", text: "Full standings", onclick: () => go("standings") })]));
+  }
+  return root;
+}
+
+/* ==========================================================================
+   Standings + points progression
+   ========================================================================== */
+
+function standingsControls() {
+  const cup = CUPS.find((c) => c.key === state.cup);
+  const cls = CLASSES.find((c) => c.key === state.cls);
+  return [
+    cupList().length > 1 ? selectField("Championship", cupList(), state.cup, cup.accent, (k) => { state.cup = k; render(); }) : null,
+    classList().length > 1 ? selectField("Class", classList(), state.cls, cls.accent, (k) => { state.cls = k; render(); }) : null,
+    toggleField("Show", entList(), state.entity, (k) => { state.entity = k; render(); }),
+  ];
+}
+function tableSub(cup, cls) {
+  const parts = [cupList().length > 1 ? cup.label : "", classList().length > 1 ? cls.label : ""].filter(Boolean);
+  return parts.filter((p, i) => parts.indexOf(p) === i).join(", ");
+}
+
+function renderStandings() {
+  const wrap = el("div");
+
+  const cup = CUPS.find((c) => c.key === state.cup);
+  const cls = CLASSES.find((c) => c.key === state.cls);
+  const ent = entList().find((e) => e.key === state.entity);
+  const rows = (((state.standings.tables || {})[state.cup] || {})[state.cls] || {})[state.entity] || [];
+  const teamOf = (r) => r.team || state.teamByDriver[normName(r.name)] || "";
+  const carOf = (r) => { const m = state.entryMaps && state.entryMaps.driverCar[normName(r.name)]; return m ? m.car : ""; };
+  const crewOf = (r) => carsForTeam(r.name);
+  const crewText = (r) => crewOf(r).map((c) => c.car + " " + c.drivers.join(" ")).join(" ");
+  // WEC driver names already start with the car number, so no extra column there.
+  const numbered = rows.some((r) => /^#/.test(r.name || ""));
+  const isDrivers = ent.key === "drivers";
+
+  const holder = el("div");
+  const paint = () => {
+    holder.innerHTML = "";
+    const shown = rows.filter((r) => matchesQuery(state.stdQuery, r.name, isDrivers ? teamOf(r) + " " + carOf(r) : crewText(r)));
+    const box = panel(`${ent.label} championship`, tableSub(cup, cls), cls.accent);
+
+    if (rows.length === 0) {
+      box.appendChild(el("div", { class: "empty", text: "No data yet for this table. It fills in after the next scheduled update." }));
+    } else if (shown.length === 0) {
+      box.appendChild(el("div", { class: "empty", text: "No names match your search." }));
+    } else {
+      const body = shown.map((r) => el("tr", { class: r.pos <= 3 ? "p" + r.pos : "" }, [
+        el("td", { class: "pos", text: String(r.pos) }),
+        isDrivers && !numbered ? el("td", { class: "sub hide-sm" }, carOf(r) ? [el("span", { class: "carno", text: "#" + carOf(r) })] : []) : null,
+        el("td", { class: "name", text: r.name }),
+        isDrivers ? el("td", { class: "sub", text: teamOf(r) })
+          : el("td", { class: "sub crew" }, crewOf(r).map((c) => el("div", {}, [el("b", { text: "#" + c.car }), " " + c.drivers.join(", ")]))),
+        el("td", { class: "num", text: fmtPoints(r.total) }),
+      ]));
+      box.appendChild(dataTable([
+        { text: "Pos" },
+        isDrivers && !numbered ? { text: "No.", hide: true } : null,
+        { text: isDrivers ? "Driver" : "Team" },
+        { text: isDrivers ? "Team" : "Drivers" },
+        { text: "Pts", num: true },
+      ], body));
+    }
+    if (state.stdQuery.trim() && rows.length) box.appendChild(note(`Showing ${shown.length} of ${rows.length}. Positions are the official ones.`));
+    if (state.series === "wec") {
+      box.appendChild(note(state.cls === "hypercar" && ent.key === "teams"
+        ? "Manufacturers: a manufacturer scores with its two best-placed cars in each race."
+        : "Each crew is listed by car number and driver surnames. A driver who shared cars in different races has a separate line."));
+    }
+    if (isGtwc()) box.appendChild(note("Overall is the Pro-inclusive table. The official site does not publish a separate Pro table."));
+    if (isDrivers && isGtwc()) box.appendChild(note("Team is the entry name from the driver's most recent race result. The official driver standings do not list teams."));
+    holder.appendChild(box);
+  };
+
+  wrap.appendChild(pageControls(standingsControls().concat([
+    searchField(state.stdQuery, isDrivers ? "Search driver, team or number" : "Search team or driver", (q) => { state.stdQuery = q; paint(); }),
+  ])));
+  paint();
+  wrap.appendChild(holder);
+  wrap.className = "stack";
+  return wrap;
+}
+
+/* ---------- progression ---------- */
+function renderProgression() {
+  const wrap = el("div", { class: "stack" });
+  const cup = CUPS.find((c) => c.key === state.cup);
+  const cls = CLASSES.find((c) => c.key === state.cls);
+  const ent = entList().find((e) => e.key === state.entity);
+  const rows = (((state.standings.tables || {})[state.cup] || {})[state.cls] || {})[state.entity] || [];
+  wrap.appendChild(pageControls(standingsControls()));
+  if (!rows.length) {
+    wrap.appendChild(emptyPanel("No data yet for this table. It fills in after the next scheduled update."));
+    return wrap;
+  }
+  wrap.appendChild(renderProgress(rows, ent.key));
+
+  // table: points earned in each round
+  const hist = state.history && state.history.snapshots ? state.history.snapshots : [];
+  const key = state.cup + "/" + state.cls;
+  const snaps = hist.filter((h) => h.tables && h.tables[key] && h.tables[key][ent.key]);
+  const box = panel("Points earned in each round", tableSub(cup, cls) ? `${ent.label}, ${tableSub(cup, cls)}` : ent.label, cls.accent);
+  if (!snaps.length) {
+    box.appendChild(el("div", { class: "empty", text: "No history for this table yet. It builds up after each round." }));
+    wrap.appendChild(box);
+    return wrap;
+  }
+  const body = rows.map((r) => {
+    const k = normName(r.name);
+    let prevTotal = 0, last = null;
+    const cells = snaps.map((h) => {
+      const v = h.tables[key][ent.key][k];
+      if (v == null) return el("td", { class: "num muted", text: "-" });
+      const earned = Math.round((v - prevTotal) * 100) / 100;
+      prevTotal = v; last = v;
+      return el("td", { class: "num", text: fmtPoints(earned) });
+    });
+    cells.push(el("td", { class: "num", style: "font-weight:700", text: last == null ? "-" : fmtPoints(last) }));
+    return el("tr", { class: r.pos <= 3 ? "p" + r.pos : "" }, [
+      el("td", { class: "pos", text: String(r.pos) }),
+      el("td", { class: "name", text: r.name }),
+    ].concat(cells));
+  });
+  box.appendChild(dataTable(
+    [{ text: "Pos" }, { text: ent.key === "drivers" ? "Driver" : "Team" }]
+      .concat(snaps.map((h) => ({ text: "R" + h.round + (h.estimated ? "*" : ""), num: true, title: h.name || "" })))
+      .concat([{ text: "Total", num: true }]),
+    body));
+  box.appendChild(note(snaps.some((h) => h.estimated)
+    ? "Points earned in each round (the change in the championship total). * = estimated from race results (poles and class rules not included); other rounds are the official standings."
+    : "Points earned in each round, worked out from the official standings. Total is the current championship total."));
+  wrap.appendChild(box);
+  return wrap;
+}
+
+// ---- points progression chart ----
+const PP_COLORS = ["var(--accent)", "var(--c-lmgt3)", "var(--c-gold)", "var(--c-endurance)", "var(--c-hypercar)", "var(--text)", "var(--c-silver)", "var(--c-bronze)"];
+function escXml(t) { return String(t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])); }
+
+function renderProgress(rows, entKey) {
+  const box = panel("Points progression", "Top 8 of this table", "var(--accent)");
+  const hist = state.history && state.history.snapshots ? state.history.snapshots : [];
+  const key = state.cup + "/" + state.cls;
+  const snaps = hist.filter((h) => h.tables && h.tables[key] && h.tables[key][entKey]);
+  const top = rows.slice(0, 8);
+  if (!snaps.length || !top.length) {
+    box.appendChild(el("div", { class: "empty", text: "No history for this table yet. It builds up after each round." }));
+    return box;
+  }
+  const series = top.map((r, i) => ({
+    name: r.name, color: PP_COLORS[i % PP_COLORS.length],
+    pts: snaps.map((h) => { const v = h.tables[key][entKey][normName(r.name)]; return v == null ? 0 : v; }),
+  }));
+  const W = 800, H = 330, L = 44, R = 200, T = 16, B = 32;
+  const maxV = Math.max(1, ...series.flatMap((s) => s.pts));
+  const step = maxV <= 40 ? 10 : maxV <= 100 ? 20 : maxV <= 250 ? 50 : 100;
+  const yMax = Math.ceil(maxV / step) * step;
+  const xAt = (i) => L + (snaps.length === 1 ? (W - L - R) / 2 : (i * (W - L - R)) / (snaps.length - 1));
+  const yAt = (v) => T + (H - T - B) * (1 - v / yMax);
+  let g = "";
+  for (let v = 0; v <= yMax; v += step) {
+    g += `<line class="grid" x1="${L}" x2="${W - R}" y1="${yAt(v)}" y2="${yAt(v)}"/>` +
+         `<text x="${L - 8}" y="${yAt(v) + 4}" text-anchor="end">${v}</text>`;
+  }
+  snaps.forEach((h, i) => { g += `<text x="${xAt(i)}" y="${H - 8}" text-anchor="middle">R${h.round}${h.estimated ? "*" : ""}</text>`; });
+  const ends = [];
+  series.forEach((s) => {
+    for (let i = 1; i < snaps.length; i++) {
+      g += `<line x1="${xAt(i - 1)}" y1="${yAt(s.pts[i - 1])}" x2="${xAt(i)}" y2="${yAt(s.pts[i])}" style="stroke:${s.color}" stroke-width="2"` +
+           `${snaps[i].estimated ? ' stroke-dasharray="6 4"' : ""}/>`;
+    }
+    s.pts.forEach((v, i) => { g += `<circle cx="${xAt(i)}" cy="${yAt(v)}" r="3" style="fill:${s.color}"/>`; });
+    ends.push({ s, y: yAt(s.pts[s.pts.length - 1]) });
+  });
+  // end labels, nudged so they do not overlap
+  ends.sort((a, b) => a.y - b.y);
+  let prev = -99;
+  ends.forEach((e) => { e.ly = Math.max(e.y, prev + 16); prev = e.ly; });
+  ends.forEach((e) => {
+    const short = entKey === "drivers" ? e.s.name.split(" ").slice(-1)[0] : e.s.name;
+    g += `<text class="lab" x="${W - R + 12}" y="${e.ly + 4}" style="fill:${e.s.color}">${escXml(short.length > 13 ? short.slice(0, 12) + "." : short)} ${fmtPoints(e.s.pts[e.s.pts.length - 1])}</text>`;
+  });
+  const wrap = el("div", { class: "pp-wrap" });
+  wrap.innerHTML = `<svg class="pp-svg" viewBox="0 0 ${W} ${H}" role="img" aria-label="Points progression chart">${g}</svg>`;
+  box.appendChild(wrap);
+  box.appendChild(el("div", { class: "pp-legend" }, series.map((s) => el("span", {}, [el("i", { style: "background:" + s.color }), s.name]))));
+  box.appendChild(note(snaps.some((h) => h.estimated)
+    ? "* and dashed lines: estimated from race results (poles and class rules not included). Rounds without an asterisk are the official standings."
+    : "Using the official standings after each round."));
+  return box;
+}
+
+/* ==========================================================================
+   Results
+   ========================================================================== */
+
+function renderResults() {
+  const wrap = el("div", { class: "stack" });
+  const rounds = state.results.rounds || [];
+  if (rounds.length === 0) {
+    wrap.appendChild(emptyPanel("No race results yet."));
+    return wrap;
+  }
+  const round = rounds.find((r) => r.id === state.roundId) || rounds[rounds.length - 1];
+  const sessions = round.sessions || [];
+  const session = sessions.find((s) => s.id === state.sessionId)
+    || sessions.find((s) => s.id === defaultSessionId(round)) || sessions[0];
+
+  /* ---- round + race pickers ---- */
+  const roundSel = el("select", { class: "select", "aria-label": "Round", onchange: (e) => {
+    state.roundId = e.target.value;
+    const r = rounds.find((x) => x.id === state.roundId);
+    state.sessionId = r ? defaultSessionId(r) : null;
+    render();
+  } });
+  rounds.forEach((r) => {
+    const o = el("option", { value: r.id, text: `R${r.round} ${r.name}${r.cup ? " (" + r.cup + ")" : ""}` });
+    if (r.id === round.id) o.selected = true;
+    roundSel.appendChild(o);
+  });
+
+  const controls = [labelled("Round", roundSel, "field sel")];
+
+  if (session) {
+    const idx = sessions.indexOf(session);
+    const goTo = (i) => { state.sessionId = sessions[i].id; render(); };
+    const raceSel = el("select", { class: "select", "aria-label": "Race", onchange: (e) => { state.sessionId = e.target.value; render(); } });
+    sessions.forEach((s) => {
+      const o = el("option", { value: s.id, text: s.name + (isCheckpoint(s) ? " (points checkpoint)" : "") });
+      if (s === session) o.selected = true;
+      raceSel.appendChild(o);
+    });
+    const prev = el("button", { class: "btn btn-step", type: "button", text: "<", "aria-label": "Previous race", onclick: () => goTo(idx - 1), ...(idx <= 0 ? { disabled: "" } : {}) });
+    const next = el("button", { class: "btn btn-step", type: "button", text: ">", "aria-label": "Next race", onclick: () => goTo(idx + 1), ...(idx >= sessions.length - 1 ? { disabled: "" } : {}) });
+    controls.push(labelled("Race", el("div", { class: "field-row" }, [
+      prev, raceSel, next, el("span", { class: "panel-sub", text: `${idx + 1}/${sessions.length}` }),
+    ]), "field grow"));
+  }
+  wrap.appendChild(pageControls(controls));
+
+  if (!session) {
+    wrap.appendChild(emptyPanel("No classification available for this round yet."));
+    return wrap;
+  }
+
+  /* ---- class chips (the choice carries over when you change race, if that race has the class) ---- */
+  const rows = session.rows || [];
+  const classes = ["ALL", ...sortClasses(Array.from(new Set(rows.map((r) => (r.cls || "").trim()).filter(Boolean))))];
+  const active = classes.includes(state.resultClass) ? state.resultClass : "ALL";
+
+  const holder = el("div");
+  const paint = () => {
+    holder.innerHTML = "";
+    const shown = rows.filter((r) => (active === "ALL" || (r.cls || "").trim() === active)
+      && matchesQuery(state.resQuery, r.drivers, r.team, r.car, r.model));
+    const tag = isInterim(session) ? " (interim)" : (isCheckpoint(session) ? " (points checkpoint)" : "");
+    const box = panel(`${session.name}${tag}`, round.name, classStyle(active).accent);
+    if (isInterim(session)) {
+      box.appendChild(note("Interim classification during the race, not the final result. The first race in the list is the final.", true));
+    } else if (isCheckpoint(session)) {
+      box.appendChild(note("Classification at a points checkpoint during the race, not the final result.", true));
+    }
+    if (rows.length === 0) {
+      box.appendChild(el("div", { class: "empty", text: "No classification available for this session yet." }));
+    } else if (shown.length === 0) {
+      box.appendChild(el("div", { class: "empty", text: "No cars match your search or class." }));
+    } else {
+      const body = shown.map((r, i) => {
+        const pos = r.pos || i + 1;
+        return el("tr", { class: pos <= 3 ? "p" + pos : "" }, [
+          el("td", { class: "pos", text: String(pos) }),
+          el("td", { class: "sub" }, r.car ? [el("span", { class: "carno", text: r.car })] : []),
+          el("td", { class: "name" }, (r.drivers || "").split(/,\s*/).filter(Boolean).map((d) => el("div", { text: d }))),
+          el("td", { class: "sub", text: r.team || "" }),
+          el("td", { class: "sub hide-sm", text: r.model || "" }),
+          el("td", { class: "num", text: r.time || "" }),
+          el("td", { class: "num", text: r.laps != null ? String(r.laps) : "" }),
+        ]);
+      });
+      box.appendChild(dataTable([
+        { text: "Pos" }, { text: "No." }, { text: "Drivers" }, { text: "Team" },
+        { text: isGtwc() ? "Car" : "", hide: true }, { text: isGtwc() ? "Best lap" : "Time / gap", num: true }, { text: "Laps", num: true },
+      ], body));
+      if (state.resQuery.trim() || active !== "ALL") {
+        box.appendChild(note(`Showing ${shown.length} of ${rows.length}. ${isGtwc() ? "Positions are the official overall ones." : "Positions are the official class positions."}`));
+      }
+      box.appendChild(note(isGtwc()
+        ? "Best lap is each car's fastest lap. The official table does not list total race times or gaps."
+        : "Time / gap is the winner's race time, then each driver's gap behind the winner. Drivers who did not finish show their status."));
+    }
+    holder.appendChild(box);
+  };
+
+  const filters = [];
+  if (classes.length > 1) {
+    filters.push(classChips(classes.map((c) => ({ key: c, label: c, ...classStyle(c) })), active, (k) => { state.resultClass = k; render(); }));
+  }
+  filters.push(searchField(state.resQuery, "Search driver, team or car", (q) => { state.resQuery = q; paint(); }));
+  wrap.appendChild(pageControls(filters));
+  paint();
+  wrap.appendChild(holder);
+  return wrap;
+}
+
+/* ==========================================================================
+   Schedule: one expandable card per round (raceweek's F1 page pattern)
+   ========================================================================== */
+
+// A session counts as finished once its end time has passed (or an hour after a start-only time).
+function sessionDone(x, now) {
+  const end = x.end_utc ? Date.parse(x.end_utc) : sessionMs(x) + 36e5;
+  return now > end;
+}
+
+function renderSchedule() {
+  const wrap = el("div", { class: "stack" });
+  const now = nowMs();
+  const rounds = scheduleRounds();
+  if (!rounds.length) {
+    wrap.appendChild(emptyPanel("No schedule yet. It appears after the next scheduled update."));
+    return wrap;
+  }
+  const nxt = nextRound(now);
+  const list = el("div");
+  rounds.forEach((r) => {
+    const st = roundStatus(r, now);
+    const open = state.schedOpen.has(r.round);
+    const isNext = nxt && nxt.round === r.round;
+    const box = el("section", { class: "round" + (isNext ? " is-next" : "") + (st === "done" ? " is-done" : ""), id: "round-" + r.round });
+
+    let status = el("span", { class: "status", text: "Done" });
+    if (st === "live") status = el("span", { class: "status live" }, [el("span", { class: "dot live" }), "Live now"]);
+    else if (st === "upcoming") {
+      const n = dayDiff(roundStartMs(r), now);
+      status = el("span", { class: "status" + (isNext ? " soon" : ""), text: n <= 0 ? "Today" : (n === 1 ? "In 1 day" : `In ${n} days`) });
+    }
+    box.appendChild(el("button", { class: "round-head", type: "button", "aria-expanded": String(open), onclick: () => {
+      if (state.schedOpen.has(r.round)) state.schedOpen.delete(r.round); else state.schedOpen.add(r.round);
+      render();
+    } }, [
+      el("span", { class: "chev", "aria-hidden": "true" }),
+      el("span", { class: "r-no", text: `R${r.round}` }),
+      el("span", { class: "r-main" }, [
+        el("div", { class: "r-name" }, [r.name, cupTag(r)]),
+        el("div", { class: "r-sub", text: r.country || "" }),
+      ]),
+      el("span", { class: "r-side" }, [status, el("span", { class: "r-date", text: rangeLabel(r) })]),
+    ]));
+
+    if (open) {
+      const body = el("div", { class: "round-body" });
+      const ss = (r.sessions || []).slice().sort((a, b) => sessionMs(a) - sessionMs(b));
+      if (!ss.length) body.appendChild(el("div", { class: "day" }, [el("div", { class: "empty", text: "Session times are not published yet." })]));
+      let day = null, lastDay = "";
+      ss.forEach((x) => {
+        const ms = sessionMs(x);
+        const label = istDayLabel(ms);
+        if (label !== lastDay) {
+          day = el("div", { class: "day" }, [el("div", { class: "label day-head", text: label })]);
+          body.appendChild(day); lastDay = label;
+        }
+        const when = istTime(ms) + (x.end_utc ? " - " + istTime(Date.parse(x.end_utc)) : "") + " IST";
+        const k = KIND[x.kind];
+        day.appendChild(el("div", { class: "srow" + (x.kind === "race" ? " race" : "") + (sessionDone(x, now) ? " done" : "") }, [
+          el("span", { class: "dot", style: `--d:${k ? k.color : "var(--text-dim)"}` }),
+          el("span", { class: "sname", text: x.name }),
+          el("span", { class: "tag", style: k ? `--t-c:${k.color}` : "", text: k ? k.label : (x.kind || "Other") }),
+          el("span", { class: "stime", text: when }),
+        ]));
+      });
+      box.appendChild(body);
+    }
+    list.appendChild(box);
+  });
+  wrap.appendChild(list);
+  return wrap;
+}
+
+/* ==========================================================================
+   Points guide
+   ========================================================================== */
+
+function pgBar(v, max) {
+  return el("div", { class: "pg-bar" }, [
+    el("span", { text: fmtPts(v) }),
+    el("div", { class: "track" }, [el("i", { style: "width:" + Math.round((v / max) * 100) + "%" })]),
+  ]);
+}
+
+function pointsCard(t) {
+  const rows = [];
+  if (t.multi) {
+    rows.push(el("div", { class: "pg-colh multi" }, [el("span", {})].concat(t.cols.map((c) => el("span", { text: c })))));
+    TEN.forEach((p, i) => {
+      rows.push(el("div", { class: "pg-row multi p" + p }, [el("div", { class: "pg-pos", text: String(p) })].concat(t.multi.map((col) => pgBar(col[i], 25)))));
+    });
+  } else {
+    const top = t.pts[0];
+    TEN.slice(0, t.pts.length).forEach((p, i) => {
+      rows.push(el("div", { class: "pg-row p" + p }, [el("div", { class: "pg-pos", text: String(p) }), pgBar(t.pts[i], top)]));
+    });
+  }
+  return el("div", { class: "pg-card", style: "--c:" + t.c }, [
+    el("h3", { text: t.title }),
+    el("div", { class: "pg-sub", text: t.sub }),
+    el("div", { class: "pg-chips" }, [
+      t.pole ? el("span", { class: "tag" }, ["Pole ", el("b", { text: t.pole })]) : null,
+      el("span", { class: "tag" }, ["Max ", el("b", { text: fmtPts(t.max) + " (" + t.maxNote + ")" })]),
+    ]),
+    el("div", { class: "pg-rows" }, rows),
+    el("div", { class: "pg-note", text: t.note }),
+  ]);
+}
+
+function legendRow(items) {
+  return el("div", { class: "legend" }, items.map(([c, t]) => el("span", {}, [el("i", { style: "--c:" + c }), t])));
+}
+
+function renderPoints() {
+  const wrap = el("div", { class: "stack" });
+  const guide = POINT_GUIDES[state.series];
+  if (guide && guide.rules) {                              // a non-GTWC series with its own guide
+    wrap.appendChild(el("div", { class: "panel" }, [el("div", { class: "pg-intro" }, [el("p", { text: guide.intro }), legendRow(guide.legend)])]));
+    wrap.appendChild(el("div", { class: "pg-grid" }, guide.tables.map(pointsCard)));
+    wrap.appendChild(el("div", { class: "panel" }, [el("ul", { class: "pg-rules" }, guide.rules.map((x) => el("li", { text: x })))]));
+    return wrap;
+  }
+  wrap.appendChild(el("div", { class: "panel" }, [el("div", { class: "pg-intro" }, [
+    el("p", { text: "How the championship points are awarded. Only the top 10 in each race score, and the Sprint and Endurance points are added together for the Overall title." }),
+    legendRow([["var(--c-sprint)", "Sprint"], ["var(--c-endurance)", "Endurance"], ["var(--c-long)", "24H Spa"]]),
+  ])]));
+  wrap.appendChild(el("div", { class: "pg-grid" }, POINT_TABLES.map(pointsCard)));
+  wrap.appendChild(el("div", { class: "panel" }, [el("ul", { class: "pg-rules" }, [
+    el("li", { text: "A car must complete at least 75% of the winner's race distance to be classified and score." }),
+    el("li", { text: "In Endurance races each driver must drive at least 25 minutes to earn points." }),
+    el("li", { text: "Gold, Silver and Bronze are separate class championships based on driver categories. The tables above are the overall scale; class scoring follows the official regulations." }),
+    el("li", { text: "Source: published 2026 season scoring tables. Check the official regulations for the final word." }),
+  ])]));
+  return wrap;
+}
+
+/* ==========================================================================
+   App shell: header, series chips, page tabs, render loop
+   ========================================================================== */
+
+const PAGES = [
+  { key: "home",      label: "Home" },
+  { key: "standings", label: "Standings" },
+  { key: "results",   label: "Results" },
+  { key: "schedule",  label: "Schedule" },
+  { key: "progress",  label: "Progression" },
+  { key: "points",    label: "Points guide" },
+];
+const VIEWS = { home: renderHome, standings: renderStandings, results: renderResults, schedule: renderSchedule, points: renderPoints, progress: renderProgression };
+
+function go(page) { state.page = page; render(); window.scrollTo(0, 0); }
+function openSchedule(roundNo) {
+  if (roundNo != null) state.schedOpen.add(roundNo);
+  else { const n = nextRound(nowMs()); if (n) state.schedOpen.add(n.round); }
+  go("schedule");
+  if (roundNo != null) { const node = document.getElementById("round-" + roundNo); if (node) node.scrollIntoView(); }
+}
+
+function renderHeader(onHome) {
+  const updated = state.standings ? state.standings.updated : "";
+  return el("header", { class: "site-header" }, [el("div", { class: "wrap" }, [
+    el("div", {}, [
+      el("div", { class: "brand-row" }, [
+        el("button", { class: "wordmark", type: "button", title: "Home", "aria-label": "pitboard, home", onclick: () => go("home") }, ["pitboard", el("span", { class: "stop", text: "." })]),
+        onHome
+          ? el("span", { class: "brand-cap", text: "2026 Motorsport standings" })
+          : el("button", { class: "back-link", type: "button", text: "\u2190 Home", onclick: () => go("home") }),
+      ]),
+      el("p", { class: "tagline", text: "Know where every championship stands." }),
+    ]),
+    el("div", { class: "header-meta" }, [
+      el("span", { class: "tz", title: "All times are shown in India Standard Time", text: "IST, UTC+5:30" }),
+      updated ? el("span", { text: "Updated " + updated }) : null,
+    ]),
+  ])]);
+}
+
+function renderNav() {
+  const chips = el("div", { class: "chips", role: "group", "aria-label": "Series" },
+    SERIES.map((x) => el("button", { class: "chip", type: "button", "aria-pressed": String(x.id === state.series), text: x.label, onclick: () => setSeries(x.id) })));
+  const tabs = el("nav", { class: "tabs", "aria-label": "Pages" },
+    PAGES.map((p) => el("button", { class: "tab", type: "button", text: p.label, ...(state.page === p.key ? { "aria-current": "page" } : {}), onclick: () => go(p.key) })));
+  return el("div", { class: "site-nav" }, [el("div", { class: "wrap" }, [chips, tabs])]);
+}
+
+function pageHead() {
+  const p = PAGES.find((x) => x.key === state.page);
+  const sub = curSeries().label + (state.page === "schedule" ? ". All times are in IST (India Standard Time, UTC+5:30)." : "");
+  return el("div", { class: "page-head" }, [el("h1", { class: "page-title", text: p ? p.label : "" }), el("p", { class: "page-sub", text: sub })]);
+}
+
+function render() {
+  if (state.timer) { clearInterval(state.timer); state.timer = null; }
+  const app = document.getElementById("app");
+  app.innerHTML = "";
+
+  const onHome = state.page === "home";
+  app.appendChild(renderHeader(onHome));
+  app.appendChild(renderNav());
+
+  const main = el("main", { id: "main" });
+  app.appendChild(main);
+  const page = (nodes) => main.appendChild(el("div", { class: "wrap page" }, nodes));
+
+  if (state.noData) {
+    const box = panel(seriesInfo(state.series).label);
+    box.appendChild(el("div", { class: "empty", text: "No data for this series yet. It will show up here once its updater has been added." }));
+    page([box]);
+    return;
+  }
+  if (state.error) {
+    page([el("div", { class: "panel err" }, [el("div", { text: "Could not load data (" + state.error + "). If you opened this file directly, run a local server instead: python -m http.server" })])]);
+    return;
+  }
+  if (!state.standings) {
+    page([el("div", { class: "loading", text: "Loading..." })]);
+    return;
+  }
+  const view = VIEWS[state.page]();
+  if (view.classList.contains("bleed")) main.appendChild(view);
+  else page([pageHead(), view]);
+}
+
+render();
+loadData();
+
+</script>
 </body>
 </html>
