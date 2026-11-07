@@ -1,0 +1,152 @@
+/* ==========================================================================
+   Pages: home, schedule, points guide, progression
+   ========================================================================== */
+
+/* ---------- home: "this week" band (raceweek pattern) ---------- */
+.week-band { background: var(--accent-band); border-bottom: 1px solid var(--line); }
+.week-band .wrap { display: flex; align-items: center; justify-content: space-between; gap: var(--s-4); padding-top: var(--s-4); padding-bottom: var(--s-4); }
+.week-label { display: flex; align-items: center; gap: var(--s-3); color: var(--accent); font-size: var(--fs-body); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; }
+.week-link { background: none; border: 0; padding: 0; color: var(--link); font-size: var(--fs-caption); }
+.week-link:hover { color: var(--link-hover); }
+
+.home-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--s-8); }
+.next-name { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); font-size: var(--fs-h2); font-weight: 700; line-height: 1.2; margin: 0 0 var(--s-1); }
+.next-meta { color: var(--text-muted); }
+.count { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-6); margin: var(--s-6) 0 var(--s-2); }
+.count-cell b {
+  display: block; font-family: var(--font-display); font-weight: 700; font-size: var(--fs-numeral);
+  line-height: 1; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--text);
+}
+.count-cell span { display: block; margin-top: var(--s-1); font-size: var(--fs-caption); color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.count-target { font-size: var(--fs-caption); color: var(--text-muted); }
+.count-target b { color: var(--text); font-weight: 500; }
+
+.upnext-title { margin-bottom: var(--s-2); }
+.upnext-foot { margin-top: var(--s-3); }
+.upnext li { display: flex; align-items: flex-start; gap: var(--s-3); padding: var(--s-3) 0; border-bottom: 1px solid var(--line-soft); }
+.upnext li:last-child { border-bottom: 0; }
+.upnext .badge { min-width: 96px; text-align: center; margin-top: 2px; }
+.upnext .u-name { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-title); line-height: 1.3; }
+.upnext .u-when { font-size: var(--fs-caption); color: var(--text-muted); }
+
+/* season rounds */
+.season-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s-2) var(--s-4); margin-bottom: var(--s-3); }
+.rounds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--s-2); margin-top: var(--s-4); }
+.rtile {
+  position: relative; text-align: left; background: var(--bg); color: var(--text);
+  border: 1px solid var(--line); border-left: 3px solid var(--c, var(--line-control)); border-radius: var(--r-md);
+  padding: var(--s-2) var(--s-3);
+  transition: border-color var(--t), background var(--t), color var(--t);
+}
+.rtile:hover { border-color: var(--border); border-left-color: var(--c, var(--border)); }
+.rtile .rn { display: block; font-size: var(--fs-caption); color: var(--text-muted); }
+.rtile .rt { display: block; font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-body); line-height: 1.3; margin-top: 2px; }
+.rtile.done { color: var(--text-muted); }
+.rtile.done .rt::after { content: " \2713"; color: var(--text-dim); }
+.rtile.now { background: var(--accent-tint); border-color: var(--accent-line); border-left-color: var(--c, var(--accent)); }
+.rtile.now .rn { color: var(--accent); font-weight: 600; }
+.legend { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4); margin-top: var(--s-3); font-size: var(--fs-caption); color: var(--text-muted); }
+.legend i { display: inline-block; width: 8px; height: 8px; border-radius: var(--r-sm); margin-right: var(--s-2); background: var(--c); vertical-align: baseline; }
+
+/* championship snapshot */
+.snap-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s-4); }
+.board-row {
+  position: relative; display: grid; grid-template-columns: 24px 1fr auto; align-items: center; gap: var(--s-3);
+  padding: var(--s-2) var(--s-3); margin-top: var(--s-1); border-radius: var(--r-sm); overflow: hidden; min-height: 40px;
+}
+.board-row .fill { position: absolute; left: 0; top: 0; bottom: 0; width: var(--w, 0); background: var(--accent-tint); }
+.board-row > :not(.fill) { position: relative; }
+.board-row .b-pos { color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.board-row.p1 .b-pos { color: var(--c-gold); font-weight: 700; }
+.board-row.p2 .b-pos { color: var(--c-silver); font-weight: 700; }
+.board-row.p3 .b-pos { color: var(--c-bronze); font-weight: 700; }
+.board-row .b-name { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-title); line-height: 1.2; min-width: 0; }
+.board-row .b-name small { display: block; font-family: var(--font-mono); font-size: var(--fs-caption); font-weight: 400; color: var(--text-muted); }
+.board-row .b-pts { font-weight: 700; font-variant-numeric: tabular-nums; }
+
+/* ---------- schedule (accordion, raceweek F1 page pattern) ---------- */
+.round { background: var(--card); border: 1px solid var(--line); border-radius: var(--r-md); overflow: hidden; }
+.round + .round { margin-top: var(--s-2); }
+.round.is-next { border-color: var(--accent-line); border-left: 3px solid var(--accent); }
+.round-head {
+  width: 100%; display: flex; align-items: center; gap: var(--s-3); text-align: left;
+  background: transparent; border: 0; padding: var(--s-3) var(--s-4); color: var(--text);
+  transition: background var(--t);
+}
+.round-head:hover { background: var(--surface); }
+.round.is-next .round-head, .round.is-next .round-head:hover { background: var(--accent-tint); }
+.round-head .chev { color: var(--text-muted); flex: none; width: 12px; font-size: var(--fs-title); line-height: 1; }
+.round-head .chev::before { content: "\25B8"; }
+.round-head[aria-expanded="true"] .chev::before { content: "\25BE"; }
+.round-head .r-no { color: var(--text-muted); font-size: var(--fs-caption); flex: none; min-width: 32px; }
+.round-head .r-main { flex: 1; min-width: 0; }
+.round-head .r-name { font-family: var(--font-mono); font-weight: 600; font-size: var(--fs-title); line-height: 1.3; }
+.round-head .r-name .tag { margin-left: var(--s-2); }
+.round-head .r-sub { font-size: var(--fs-caption); color: var(--text-muted); }
+.round-head .r-side { display: flex; align-items: center; gap: var(--s-3); flex: none; text-align: right; }
+.round-head .r-date { font-size: var(--fs-caption); color: var(--text-muted); white-space: nowrap; }
+.round.is-done .r-name { color: var(--text-muted); }
+.status { font-size: var(--fs-caption); font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-dim); white-space: nowrap; }
+.status.soon { color: var(--accent); }
+.status.live { color: var(--live); display: inline-flex; align-items: center; gap: var(--s-2); }
+
+.round-body { background: var(--card-open); border-top: 1px solid var(--line); }
+.day { padding: var(--s-3) var(--s-4) var(--s-3) calc(var(--s-4) + 12px + var(--s-3)); }
+.day + .day { border-top: 1px solid var(--line-soft); }
+.day-head { margin-bottom: var(--s-1); }
+.srow { display: flex; align-items: center; gap: var(--s-3); padding: var(--s-1) 0; }
+.srow .sname { flex: 1; min-width: 0; color: var(--text-muted); }
+.srow.race .sname { color: var(--text); font-weight: 600; }
+.srow .stime { color: var(--text); font-variant-numeric: tabular-nums; white-space: nowrap; font-size: var(--fs-caption); }
+.srow.done .sname, .srow.done .stime { color: var(--text-dim); text-decoration: line-through; font-weight: 400; }
+.srow .tag { min-width: 80px; text-align: center; }
+
+/* ---------- points guide ---------- */
+.pg-intro { display: flex; flex-wrap: wrap; gap: var(--s-3) var(--s-6); align-items: center; }
+.pg-intro p { flex: 1 1 320px; color: var(--text-muted); }
+.pg-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--s-4); }
+.pg-card { display: flex; flex-direction: column; background: var(--card); border: 1px solid var(--line); border-top: 3px solid var(--c); border-radius: var(--r-md); padding: var(--s-4); }
+.pg-card h3 { font-size: var(--fs-title); font-weight: 600; }
+.pg-sub { font-size: var(--fs-caption); color: var(--text-muted); margin-top: var(--s-1); }
+.pg-chips { display: flex; flex-wrap: wrap; gap: var(--s-2); margin: var(--s-3) 0; }
+.pg-chips .tag b { color: var(--text); font-weight: 600; text-transform: none; letter-spacing: 0; }
+.pg-colh, .pg-row { display: grid; grid-template-columns: 32px 1fr; gap: var(--s-3); align-items: center; }
+.pg-colh.multi, .pg-row.multi { grid-template-columns: 32px repeat(3, 1fr); }
+.pg-colh { padding-bottom: var(--s-1); font-size: var(--fs-caption); color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+.pg-row { padding: var(--s-1) 0; }
+.pg-pos { font-size: var(--fs-caption); font-weight: 600; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+.pg-row.p1 .pg-pos { color: var(--c-gold); } .pg-row.p2 .pg-pos { color: var(--c-silver); } .pg-row.p3 .pg-pos { color: var(--c-bronze); }
+.pg-bar { display: flex; align-items: center; gap: var(--s-2); }
+.pg-bar span { min-width: 32px; text-align: right; font-variant-numeric: tabular-nums; font-weight: 500; }
+.pg-bar .track { flex: 1; height: 8px; background: var(--line); border-radius: var(--r-sm); overflow: hidden; }
+.pg-bar .track i { display: block; height: 100%; background: var(--c); }
+.pg-note { margin-top: auto; padding-top: var(--s-3); font-size: var(--fs-caption); color: var(--text-muted); }
+.pg-rules li { position: relative; padding-left: var(--s-4); color: var(--text-muted); }
+.pg-rules li + li { margin-top: var(--s-2); }
+.pg-rules li::before { content: ""; position: absolute; left: 0; top: 9px; width: 4px; height: 4px; background: var(--text-dim); }
+
+/* ---------- progression chart ---------- */
+.pp-wrap { overflow-x: auto; }
+.pp-svg { width: 100%; min-width: 560px; height: auto; display: block; }
+.pp-svg text { font-family: var(--font-mono); font-size: 12px; fill: var(--text-dim); }
+.pp-svg text.lab { font-weight: 600; }
+.pp-svg .grid { stroke: var(--line); stroke-width: 1; }
+.pp-legend { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4); margin-top: var(--s-3); font-size: var(--fs-caption); color: var(--text-muted); }
+.pp-legend i { display: inline-block; width: 8px; height: 8px; border-radius: var(--r-sm); margin-right: var(--s-2); }
+
+/* ---------- responsive ---------- */
+@media (max-width: 760px) {
+  .home-cols { grid-template-columns: 1fr; gap: var(--s-6); }
+  .count-cell b { font-size: 32px; }
+}
+@media (max-width: 640px) {
+  .round-head { padding: var(--s-3); gap: var(--s-2); }
+  .round-head .r-side { flex-direction: column; align-items: flex-end; gap: var(--s-1); }
+  .day { padding-left: var(--s-3); padding-right: var(--s-3); }
+  .srow { flex-wrap: wrap; row-gap: var(--s-1); }
+  .srow .dot { order: 0; }
+  .srow .sname { flex: 1 1 calc(100% - 24px); order: 1; }
+  .srow .tag { order: 2; min-width: 0; margin-left: var(--s-5); }
+  .srow .stime { order: 3; margin-left: auto; }
+  .week-band .wrap { flex-wrap: wrap; }
+}
