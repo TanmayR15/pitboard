@@ -131,7 +131,7 @@
 .data-table tbody tr:hover td { background: var(--surface); }
 .data-table th.num, .data-table td.num { padding-left: var(--s-4); }
 .data-table th.num { text-align: right; }
-.data-table td.name { font-family: var(--font-display); font-weight: 500; font-size: var(--fs-title); color: var(--text); }
+.data-table td.name { font-family: var(--font-mono); font-weight: 500; font-size: var(--fs-title); color: var(--text); }
 .data-table td.name div { line-height: 1.3; }
 .data-table td.sub { color: var(--text-muted); font-size: var(--fs-caption); line-height: 1.5; padding-top: 14px; }
 .data-table td.name { padding-top: var(--s-3); }
