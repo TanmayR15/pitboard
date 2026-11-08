@@ -5641,26 +5641,6 @@
       },
       {
        "pos": 7,
-       "car": "81",
-       "drivers": "Oscar Piastri",
-       "team": "McLaren",
-       "model": "",
-       "time": "+19.475",
-       "laps": 71,
-       "cls": ""
-      },
-      {
-       "pos": 8,
-       "car": "43",
-       "drivers": "Franco Colapinto",
-       "team": "Alpine F1 Team",
-       "model": "",
-       "time": "+20.204",
-       "laps": 71,
-       "cls": ""
-      },
-      {
-       "pos": 9,
        "car": "30",
        "drivers": "Liam Lawson",
        "team": "RB F1 Team",
@@ -5670,17 +5650,7 @@
        "cls": ""
       },
       {
-       "pos": 10,
-       "car": "10",
-       "drivers": "Pierre Gasly",
-       "team": "Alpine F1 Team",
-       "model": "",
-       "time": "+21.483",
-       "laps": 71,
-       "cls": ""
-      },
-      {
-       "pos": 11,
+       "pos": 8,
        "car": "5",
        "drivers": "Gabriel Bortoleto",
        "team": "Audi",
@@ -5690,7 +5660,7 @@
        "cls": ""
       },
       {
-       "pos": 12,
+       "pos": 9,
        "car": "6",
        "drivers": "Isack Hadjar",
        "team": "Red Bull",
@@ -5700,7 +5670,7 @@
        "cls": ""
       },
       {
-       "pos": 13,
+       "pos": 10,
        "car": "50",
        "drivers": "Ryo Hirakawa",
        "team": "Haas F1 Team",
@@ -5710,7 +5680,7 @@
        "cls": ""
       },
       {
-       "pos": 14,
+       "pos": 11,
        "car": "23",
        "drivers": "Alexander Albon",
        "team": "Williams",
@@ -5720,7 +5690,7 @@
        "cls": ""
       },
       {
-       "pos": 15,
+       "pos": 12,
        "car": "55",
        "drivers": "Carlos Sainz",
        "team": "Williams",
@@ -5730,7 +5700,17 @@
        "cls": ""
       },
       {
-       "pos": 16,
+       "pos": 13,
+       "car": "81",
+       "drivers": "Oscar Piastri",
+       "team": "McLaren",
+       "model": "",
+       "time": "+29.475",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 14,
        "car": "27",
        "drivers": "Nico Hülkenberg",
        "team": "Audi",
@@ -5740,12 +5720,32 @@
        "cls": ""
       },
       {
-       "pos": 17,
+       "pos": 15,
+       "car": "43",
+       "drivers": "Franco Colapinto",
+       "team": "Alpine F1 Team",
+       "model": "",
+       "time": "+30.204",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 16,
        "car": "11",
        "drivers": "Sergio Pérez",
        "team": "Cadillac F1 Team",
        "model": "",
        "time": "+30.695",
+       "laps": 71,
+       "cls": ""
+      },
+      {
+       "pos": 17,
+       "car": "10",
+       "drivers": "Pierre Gasly",
+       "team": "Alpine F1 Team",
+       "model": "",
+       "time": "+51.483",
        "laps": 71,
        "cls": ""
       },
@@ -5804,5 +5804,5 @@
    ]
   }
  ],
- "updated": "2026-11-02 13:45 UTC"
+ "updated": "2026-11-08 00:54 UTC"
 }
