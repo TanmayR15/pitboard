@@ -8,63 +8,63 @@
       "pos": 1,
       "name": "Andrea Kimi Antonelli",
       "team": "Mercedes",
-      "total": 380,
+      "total": 390,
       "wins": 9
      },
      {
       "pos": 2,
       "name": "Max Verstappen",
       "team": "Red Bull",
-      "total": 261,
+      "total": 279,
       "wins": 3
      },
      {
       "pos": 3,
-      "name": "Lewis Hamilton",
-      "team": "Ferrari",
-      "total": 259,
-      "wins": 1
+      "name": "George Russell",
+      "team": "Mercedes",
+      "total": 262,
+      "wins": 3
      },
      {
       "pos": 4,
-      "name": "George Russell",
-      "team": "Mercedes",
-      "total": 250,
-      "wins": 3
+      "name": "Lewis Hamilton",
+      "team": "Ferrari",
+      "total": 261,
+      "wins": 1
      },
      {
       "pos": 5,
       "name": "Charles Leclerc",
       "team": "Ferrari",
-      "total": 245,
+      "total": 249,
       "wins": 1
      },
      {
       "pos": 6,
       "name": "Lando Norris",
       "team": "McLaren",
-      "total": 221,
-      "wins": 2
+      "total": 246,
+      "wins": 3
      },
      {
       "pos": 7,
       "name": "Oscar Piastri",
       "team": "McLaren",
-      "total": 144,
+      "total": 152,
       "wins": 0
      },
      {
       "pos": 8,
       "name": "Isack Hadjar",
       "team": "Red Bull",
-      "total": 107,
+      "total": 122,
       "wins": 0
      },
      {
       "pos": 9,
       "name": "Liam Lawson",
       "team": "Red Bull",
-      "total": 83,
+      "total": 89,
       "wins": 0
      },
      {
@@ -106,7 +106,7 @@
       "pos": 15,
       "name": "Nico Hülkenberg",
       "team": "Audi",
-      "total": 13,
+      "total": 14,
       "wins": 0
      },
      {
@@ -184,31 +184,31 @@
      {
       "pos": 1,
       "name": "Mercedes",
-      "total": 630,
+      "total": 652,
       "wins": 12
      },
      {
       "pos": 2,
       "name": "Ferrari",
-      "total": 504,
+      "total": 510,
       "wins": 2
      },
      {
       "pos": 3,
       "name": "Red Bull",
-      "total": 382,
+      "total": 415,
       "wins": 3
      },
      {
       "pos": 4,
       "name": "McLaren",
-      "total": 365,
-      "wins": 2
+      "total": 398,
+      "wins": 3
      },
      {
       "pos": 5,
       "name": "RB F1 Team",
-      "total": 108,
+      "total": 114,
       "wins": 0
      },
      {
@@ -226,7 +226,7 @@
      {
       "pos": 8,
       "name": "Audi",
-      "total": 27,
+      "total": 28,
       "wins": 0
      },
      {
@@ -251,5 +251,5 @@
    }
   }
  },
- "updated": "2026-11-08 00:54 UTC"
+ "updated": "2026-11-09 01:10 UTC"
 }
