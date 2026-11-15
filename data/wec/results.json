@@ -2498,7 +2498,7 @@
       {
        "pos": 6,
        "car": "61",
-       "drivers": "MARTIN BERRY, MAXIME MARTIN, RUI ANDRADE",
+       "drivers": "CHRISTIAN RIED, MAXIME MARTIN, RUI ANDRADE",
        "team": "IRON LYNX",
        "model": "",
        "time": "+35.754",
@@ -2872,7 +2872,7 @@
       {
        "pos": 7,
        "car": "61",
-       "drivers": "MARTIN BERRY, MAXIME MARTIN, RUI ANDRADE",
+       "drivers": "CHRISTIAN RIED, MAXIME MARTIN, RUI ANDRADE",
        "team": "IRON LYNX",
        "model": "",
        "time": "+34.659",
@@ -2994,5 +2994,5 @@
    ]
   }
  ],
- "updated": "2026-11-09 14:13 UTC"
+ "updated": "2026-11-15 01:15 UTC"
 }
