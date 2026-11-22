@@ -940,24 +940,24 @@
    "tables": {
     "overall/overall": {
      "drivers": {
-      "andrea kimi antonelli": 390,
-      "max verstappen": 279,
-      "george russell": 262,
-      "lewis hamilton": 261,
-      "charles leclerc": 249,
-      "lando norris": 246,
-      "oscar piastri": 152,
+      "andrea kimi antonelli": 402,
+      "max verstappen": 304,
+      "lewis hamilton": 267,
+      "george russell": 264,
+      "lando norris": 264,
+      "charles leclerc": 250,
+      "oscar piastri": 167,
       "isack hadjar": 122,
       "liam lawson": 89,
-      "pierre gasly": 42,
+      "pierre gasly": 52,
       "arvid lindblad": 38,
-      "franco colapinto": 27,
+      "franco colapinto": 35,
       "oliver bearman": 23,
       "gabriel bortoleto": 14,
       "nico hulkenberg": 14,
+      "carlos sainz": 11,
       "esteban ocon": 7,
       "fernando alonso": 7,
-      "carlos sainz": 7,
       "alexander albon": 5,
       "yuki tsunoda": 1,
       "ryo hirakawa": 1,
@@ -967,15 +967,15 @@
       "rafael camara": 0
      },
      "teams": {
-      "mercedes": 652,
-      "ferrari": 510,
-      "red bull": 415,
-      "mclaren": 398,
+      "mercedes": 666,
+      "ferrari": 517,
+      "red bull": 440,
+      "mclaren": 431,
       "rb f1 team": 114,
-      "alpine f1 team": 69,
+      "alpine f1 team": 87,
       "haas f1 team": 31,
       "audi": 28,
-      "williams": 12,
+      "williams": 16,
       "aston martin": 7,
       "cadillac f1 team": 0
      }
@@ -983,5 +983,5 @@
    }
   }
  ],
- "updated": "2026-11-22 01:31 UTC"
+ "updated": "2026-11-22 11:35 UTC"
 }

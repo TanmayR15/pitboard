@@ -8,49 +8,49 @@
       "pos": 1,
       "name": "Andrea Kimi Antonelli",
       "team": "Mercedes",
-      "total": 390,
+      "total": 402,
       "wins": 9
      },
      {
       "pos": 2,
       "name": "Max Verstappen",
       "team": "Red Bull",
-      "total": 279,
-      "wins": 3
+      "total": 304,
+      "wins": 4
      },
      {
       "pos": 3,
-      "name": "George Russell",
-      "team": "Mercedes",
-      "total": 262,
-      "wins": 3
+      "name": "Lewis Hamilton",
+      "team": "Ferrari",
+      "total": 267,
+      "wins": 1
      },
      {
       "pos": 4,
-      "name": "Lewis Hamilton",
-      "team": "Ferrari",
-      "total": 261,
-      "wins": 1
+      "name": "George Russell",
+      "team": "Mercedes",
+      "total": 264,
+      "wins": 3
      },
      {
       "pos": 5,
-      "name": "Charles Leclerc",
-      "team": "Ferrari",
-      "total": 249,
-      "wins": 1
+      "name": "Lando Norris",
+      "team": "McLaren",
+      "total": 264,
+      "wins": 3
      },
      {
       "pos": 6,
-      "name": "Lando Norris",
-      "team": "McLaren",
-      "total": 246,
-      "wins": 3
+      "name": "Charles Leclerc",
+      "team": "Ferrari",
+      "total": 250,
+      "wins": 1
      },
      {
       "pos": 7,
       "name": "Oscar Piastri",
       "team": "McLaren",
-      "total": 152,
+      "total": 167,
       "wins": 0
      },
      {
@@ -71,7 +71,7 @@
       "pos": 10,
       "name": "Pierre Gasly",
       "team": "Alpine F1 Team",
-      "total": 42,
+      "total": 52,
       "wins": 0
      },
      {
@@ -85,7 +85,7 @@
       "pos": 12,
       "name": "Franco Colapinto",
       "team": "Alpine F1 Team",
-      "total": 27,
+      "total": 35,
       "wins": 0
      },
      {
@@ -111,22 +111,22 @@
      },
      {
       "pos": 16,
+      "name": "Carlos Sainz",
+      "team": "Williams",
+      "total": 11,
+      "wins": 0
+     },
+     {
+      "pos": 17,
       "name": "Esteban Ocon",
       "team": "Haas F1 Team",
       "total": 7,
       "wins": 0
      },
      {
-      "pos": 17,
+      "pos": 18,
       "name": "Fernando Alonso",
       "team": "Aston Martin",
-      "total": 7,
-      "wins": 0
-     },
-     {
-      "pos": 18,
-      "name": "Carlos Sainz",
-      "team": "Williams",
       "total": 7,
       "wins": 0
      },
@@ -184,25 +184,25 @@
      {
       "pos": 1,
       "name": "Mercedes",
-      "total": 652,
+      "total": 666,
       "wins": 12
      },
      {
       "pos": 2,
       "name": "Ferrari",
-      "total": 510,
+      "total": 517,
       "wins": 2
      },
      {
       "pos": 3,
       "name": "Red Bull",
-      "total": 415,
-      "wins": 3
+      "total": 440,
+      "wins": 4
      },
      {
       "pos": 4,
       "name": "McLaren",
-      "total": 398,
+      "total": 431,
       "wins": 3
      },
      {
@@ -214,7 +214,7 @@
      {
       "pos": 6,
       "name": "Alpine F1 Team",
-      "total": 69,
+      "total": 87,
       "wins": 0
      },
      {
@@ -232,7 +232,7 @@
      {
       "pos": 9,
       "name": "Williams",
-      "total": 12,
+      "total": 16,
       "wins": 0
      },
      {
@@ -251,5 +251,5 @@
    }
   }
  },
- "updated": "2026-11-09 01:10 UTC"
+ "updated": "2026-11-22 11:35 UTC"
 }
