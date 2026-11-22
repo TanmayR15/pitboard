@@ -932,7 +932,56 @@
      }
     }
    }
+  },
+  {
+   "round": 21,
+   "name": "Las Vegas GP",
+   "estimated": false,
+   "tables": {
+    "overall/overall": {
+     "drivers": {
+      "andrea kimi antonelli": 390,
+      "max verstappen": 279,
+      "george russell": 262,
+      "lewis hamilton": 261,
+      "charles leclerc": 249,
+      "lando norris": 246,
+      "oscar piastri": 152,
+      "isack hadjar": 122,
+      "liam lawson": 89,
+      "pierre gasly": 42,
+      "arvid lindblad": 38,
+      "franco colapinto": 27,
+      "oliver bearman": 23,
+      "gabriel bortoleto": 14,
+      "nico hulkenberg": 14,
+      "esteban ocon": 7,
+      "fernando alonso": 7,
+      "carlos sainz": 7,
+      "alexander albon": 5,
+      "yuki tsunoda": 1,
+      "ryo hirakawa": 1,
+      "lance stroll": 0,
+      "valtteri bottas": 0,
+      "sergio perez": 0,
+      "rafael camara": 0
+     },
+     "teams": {
+      "mercedes": 652,
+      "ferrari": 510,
+      "red bull": 415,
+      "mclaren": 398,
+      "rb f1 team": 114,
+      "alpine f1 team": 69,
+      "haas f1 team": 31,
+      "audi": 28,
+      "williams": 12,
+      "aston martin": 7,
+      "cadillac f1 team": 0
+     }
+    }
+   }
   }
  ],
- "updated": "2026-11-09 01:10 UTC"
+ "updated": "2026-11-22 01:31 UTC"
 }

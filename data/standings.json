@@ -1,6 +1,6 @@
 {
  "season": 2026,
- "updated": "2026-11-01 00:22 UTC",
+ "updated": "2026-11-22 01:31 UTC",
  "tables": {
   "overall": {
    "overall": {
@@ -1460,416 +1460,416 @@
     "drivers": [
      {
       "pos": 1,
-      "name": "Dennis Marschall",
-      "total": 171.5
-     },
-     {
-      "pos": 2,
       "name": "Marvin Dienst",
       "total": 159.0
      },
      {
-      "pos": 2,
+      "pos": 1,
       "name": "Rinat Salikhov",
       "total": 159.0
      },
      {
-      "pos": 3,
+      "pos": 2,
       "name": "Charles Dawson",
       "total": 151.5
      },
      {
-      "pos": 3,
+      "pos": 2,
       "name": "Kiern Jewiss",
       "total": 151.5
      },
      {
-      "pos": 4,
+      "pos": 3,
       "name": "Darren Leung",
       "total": 149.0
      },
      {
-      "pos": 5,
+      "pos": 4,
       "name": "Eddie Cheever",
       "total": 135.0
      },
      {
-      "pos": 6,
+      "pos": 5,
       "name": "Dustin Blattner",
       "total": 132.5
      },
      {
-      "pos": 7,
+      "pos": 5,
+      "name": "Dennis Marschall",
+      "total": 132.5
+     },
+     {
+      "pos": 6,
       "name": "Peter Dempsey",
       "total": 116.0
      },
      {
-      "pos": 8,
+      "pos": 7,
       "name": "James Kellett",
       "total": 84.0
      },
      {
-      "pos": 9,
+      "pos": 8,
       "name": "Reece Barr",
       "total": 82.0
      },
      {
-      "pos": 10,
+      "pos": 9,
       "name": "Gabriele Piana",
       "total": 76.0
      },
      {
-      "pos": 11,
+      "pos": 10,
       "name": "Augusto Farfus",
       "total": 65.0
      },
      {
-      "pos": 12,
+      "pos": 11,
       "name": "Gabriel Rindone",
       "total": 63.0
      },
      {
-      "pos": 13,
+      "pos": 12,
       "name": "Lorenzo Patrese",
       "total": 62.0
      },
      {
-      "pos": 14,
+      "pos": 13,
       "name": "Antares Au",
       "total": 50.0
      },
      {
-      "pos": 15,
+      "pos": 14,
       "name": "Mathys Jaubert",
       "total": 50.0
      },
      {
-      "pos": 15,
+      "pos": 14,
       "name": "Ben Tuck",
       "total": 50.0
      },
      {
-      "pos": 16,
+      "pos": 15,
       "name": "Calan Williams",
       "total": 49.0
      },
      {
-      "pos": 16,
+      "pos": 15,
       "name": "Javier Sagrera",
       "total": 49.0
      },
      {
-      "pos": 16,
+      "pos": 15,
       "name": "Ahmad Al Harthy",
       "total": 49.0
      },
      {
-      "pos": 17,
+      "pos": 16,
       "name": "Fabian Schiller",
       "total": 46.0
      },
      {
-      "pos": 19,
+      "pos": 18,
       "name": "Dmitry Gvazava",
       "total": 36.5
      },
      {
-      "pos": 19,
+      "pos": 18,
       "name": "Loris Cabirou",
       "total": 36.5
      },
      {
-      "pos": 20,
+      "pos": 19,
       "name": "Leyton Fourie",
       "total": 36.0
      },
      {
-      "pos": 20,
+      "pos": 19,
       "name": "David Pittard",
       "total": 36.0
      },
      {
-      "pos": 21,
+      "pos": 20,
       "name": "Riccardo Pera",
       "total": 33.0
      },
      {
-      "pos": 21,
+      "pos": 20,
       "name": "Loek Hartog",
       "total": 33.0
      },
      {
-      "pos": 22,
+      "pos": 21,
       "name": "Giacomo Petrobelli",
       "total": 33.0
      },
      {
-      "pos": 22,
+      "pos": 21,
       "name": "Jonathan Adam",
       "total": 33.0
      },
      {
-      "pos": 23,
+      "pos": 22,
       "name": "Lorcan Hanafin",
       "total": 32.0
      },
      {
-      "pos": 24,
+      "pos": 23,
       "name": "Alex Fontana",
       "total": 31.0
      },
      {
-      "pos": 24,
+      "pos": 23,
       "name": "Patrick Kolb",
       "total": 31.0
      },
      {
-      "pos": 24,
+      "pos": 23,
       "name": "Bashar Mardini",
       "total": 31.0
      },
      {
-      "pos": 25,
+      "pos": 24,
       "name": "Christopher Froggatt",
       "total": 31.0
      },
      {
-      "pos": 26,
+      "pos": 25,
       "name": "Carrie Schreiner",
       "total": 29.0
      },
      {
-      "pos": 27,
+      "pos": 26,
       "name": "Huub van Eijndhoven",
       "total": 27.0
      },
      {
-      "pos": 27,
+      "pos": 26,
       "name": "Ralf Bohn",
       "total": 27.0
      },
      {
-      "pos": 28,
+      "pos": 27,
       "name": "Dries Vanthoor",
       "total": 25.0
      },
      {
-      "pos": 29,
+      "pos": 28,
       "name": "Robert De Haan",
       "total": 23.0
      },
      {
-      "pos": 30,
+      "pos": 29,
       "name": "Robert Renauer",
       "total": 23.0
      },
      {
-      "pos": 31,
+      "pos": 30,
       "name": "Axcil Jefferies",
       "total": 21.0
      },
      {
-      "pos": 32,
+      "pos": 31,
       "name": "Jonathan Hui",
       "total": 19.0
      },
      {
-      "pos": 33,
+      "pos": 32,
       "name": "Sebastian Øgaard",
       "total": 17.0
      },
      {
-      "pos": 34,
+      "pos": 33,
       "name": "Martin Rump",
       "total": 17.0
      },
      {
-      "pos": 34,
+      "pos": 33,
       "name": "Michelle Gatting",
       "total": 17.0
      },
      {
-      "pos": 34,
+      "pos": 33,
       "name": "Sven Müller",
       "total": 17.0
      },
      {
-      "pos": 35,
+      "pos": 34,
       "name": "Mikael Grenier",
       "total": 17.0
      },
      {
-      "pos": 35,
+      "pos": 34,
       "name": "Tom Kalender",
       "total": 17.0
      },
      {
-      "pos": 36,
+      "pos": 35,
       "name": "Marco Pulcini",
       "total": 16.5
      },
      {
-      "pos": 36,
+      "pos": 35,
       "name": "David Fumanelli",
       "total": 16.5
      },
      {
-      "pos": 37,
+      "pos": 36,
       "name": "Garnet Patterson",
       "total": 16.0
      },
      {
-      "pos": 38,
+      "pos": 37,
       "name": "Daan Arrow",
       "total": 15.0
      },
      {
-      "pos": 39,
+      "pos": 38,
       "name": "Romain Leroux",
       "total": 14.0
      },
      {
-      "pos": 40,
+      "pos": 39,
       "name": "Daniele Di Amato",
       "total": 12.0
      },
      {
-      "pos": 41,
+      "pos": 40,
       "name": "Jarrod Waberski",
       "total": 11.0
      },
      {
-      "pos": 42,
+      "pos": 41,
       "name": "Marcelo Tomasoni",
       "total": 10.0
      },
      {
-      "pos": 43,
+      "pos": 42,
       "name": "Thomas Kiefer",
       "total": 9.0
      },
      {
-      "pos": 43,
+      "pos": 42,
       "name": "Rolf Ineichen",
       "total": 9.0
      },
      {
-      "pos": 43,
+      "pos": 42,
       "name": "Tim Heinemann",
       "total": 9.0
      },
      {
-      "pos": 44,
+      "pos": 43,
       "name": "Jop Rappange",
       "total": 8.0
      },
      {
-      "pos": 45,
+      "pos": 44,
       "name": "Gerhard Tweraser",
       "total": 8.0
      },
      {
-      "pos": 46,
+      "pos": 45,
       "name": "Felice Jelmini",
       "total": 7.0
      },
      {
-      "pos": 47,
+      "pos": 46,
       "name": "Mex Jansen",
       "total": 7.0
      },
      {
-      "pos": 48,
+      "pos": 47,
       "name": "Aleksei Nesov",
       "total": 6.0
      },
      {
-      "pos": 49,
+      "pos": 48,
       "name": "Lewis Williamson",
       "total": 4.0
      },
      {
-      "pos": 49,
+      "pos": 48,
       "name": "Aaron Walker",
       "total": 4.0
      },
      {
-      "pos": 49,
+      "pos": 48,
       "name": "Scott Noble",
       "total": 4.0
      },
      {
-      "pos": 49,
+      "pos": 48,
       "name": "Jason Hart",
       "total": 4.0
      },
      {
-      "pos": 50,
+      "pos": 49,
       "name": "Alfred Renauer",
       "total": 4.0
      },
      {
-      "pos": 50,
+      "pos": 49,
       "name": "Mathieu Jaminet",
       "total": 4.0
      },
      {
-      "pos": 51,
+      "pos": 50,
       "name": "Aaron Muss",
       "total": 3.0
      },
      {
-      "pos": 52,
+      "pos": 51,
       "name": "Pierre-Louis Chovet",
       "total": 3.0
      },
      {
-      "pos": 53,
+      "pos": 52,
       "name": "Andres Latorre",
       "total": 2.0
      },
      {
-      "pos": 53,
+      "pos": 52,
       "name": "Bayley Hall",
       "total": 2.0
      },
      {
-      "pos": 53,
+      "pos": 52,
       "name": "Tobias Müller",
       "total": 2.0
      },
      {
-      "pos": 53,
+      "pos": 52,
       "name": "Benjamin Paque",
       "total": 2.0
      },
      {
-      "pos": 53,
+      "pos": 52,
       "name": "Armand Fumal",
       "total": 2.0
      },
      {
-      "pos": 53,
+      "pos": 52,
       "name": "Dominik Olbert",
       "total": 2.0
      },
      {
-      "pos": 54,
+      "pos": 53,
       "name": "Michael Blanchemain",
       "total": 1.0
      },
      {
-      "pos": 54,
+      "pos": 53,
       "name": "Jim Pla",
       "total": 1.0
      },
      {
-      "pos": 55,
+      "pos": 54,
       "name": "Sergio Sette Camara",
       "total": 1.0
      },
      {
-      "pos": 55,
+      "pos": 54,
       "name": "Tom Wood",
       "total": 1.0
      }

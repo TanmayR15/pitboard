@@ -3298,7 +3298,6 @@
     },
     "overall/bronze": {
      "drivers": {
-      "dennis marschall": 171.5,
       "marvin dienst": 159.0,
       "rinat salikhov": 159.0,
       "charles dawson": 151.5,
@@ -3306,6 +3305,7 @@
       "darren leung": 149.0,
       "eddie cheever": 135.0,
       "dustin blattner": 132.5,
+      "dennis marschall": 132.5,
       "peter dempsey": 116.0,
       "james kellett": 84.0,
       "reece barr": 82.0,
@@ -3953,5 +3953,5 @@
    }
   }
  ],
- "updated": "2026-11-01 00:22 UTC"
+ "updated": "2026-11-22 01:31 UTC"
 }
